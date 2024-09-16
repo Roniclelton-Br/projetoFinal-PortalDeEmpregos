@@ -68,7 +68,7 @@ html {
 
 main .hero {
     height: 400px;
-    background-image: url(../static/imagens/image-1.jpg);
+    background-image: url(../imagens/image-1.jpg);
     background-size: cover;
     background-position: center center;
 }
