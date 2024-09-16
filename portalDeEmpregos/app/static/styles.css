@@ -1,0 +1,186 @@
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+    box-sizing: border-box;
+}
+
+:root {
+    --gray-color: #35424A;
+    --orange-color: #E8491D;
+    --back-color: #F4F4F4;
+    --white-color: #ffffff;
+
+}
+
+html {
+    font-size: 62.5%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--gray-color);
+
+}
+.container {
+    width: 80%;
+    margin: auto;
+    padding: 20px;
+}
+
+.cabecalho {
+    height: 120px;
+    max-width: 100dvw;
+    border-bottom: 3px solid var(--orange-color);
+}
+.cabecalho .conteudo-cabecalho {
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: flex-end;
+    justify-content: space-between;
+}
+.conteudo-cabecalho .title h1 {
+    font-size: 3rem;
+    color: var(--white-color);
+}
+.conteudo-cabecalho .title span {
+    color: var(--orange-color);
+}
+.conteudo-cabecalho .menu ul{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.conteudo-cabecalho .menu ul .lista-menu a {
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--back-color);
+    padding: 5px 10px;
+    text-transform: uppercase;
+    transition: all ease-in-out 0.3s;
+    border: 1px solid transparent;
+    border-radius: 5px;
+}
+.conteudo-cabecalho .menu ul .lista-menu a:hover {
+    background-color: var(--back-color);
+    color: var(--orange-color);
+}
+
+main .hero {
+    height: 400px;
+    background-image: url(../static/imagens/image-1.jpg);
+    background-size: cover;
+    background-position: center center;
+}
+main .conteudo-hero {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 20px;
+
+}
+.conteudo-hero h1 {
+    font-size: 6rem;
+    color: var(--gray-color);
+    letter-spacing: 1px;
+    text-shadow: -1px 1px 1px var(--white-color);
+}
+.conteudo-hero p {
+    font-size: 2.5rem;
+    color: var(--gray-color);
+    letter-spacing: 1px;
+    text-shadow: -1px 1px 1px var(--white-color);
+}
+
+.inscreva-se {
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.inscreva-se h2 {
+    font-size: 3rem;
+    color: var(--back-color);
+    letter-spacing: 1px;
+}
+.inscreva-se form input {
+    font-size: 2.5rem;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+}
+.inscreva-se form .input-email {
+    outline: none;
+    margin-right: 20px;
+}
+.inscreva-se form .input-inscrever {
+    cursor: pointer;
+    background-color: var(--orange-color);
+    font-weight: bold;
+    color: var(--back-color);
+    transition: all ease-in-out 0.3s;
+}
+.inscreva-se form .input-inscrever:hover {
+    background-color: var(--back-color);
+    color: var(--orange-color);
+}
+main .conteudo-funcoes {
+    background-color: var(--back-color);
+    height: 400px;
+}
+
+main .menu-funcoes {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+}
+
+.menu-funcoes .publicar-vaga, .menu-funcoes .vagas {
+    width: 200px;
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    transition: all ease-in-out 0.3s;
+}
+.menu-funcoes .publicar-vaga:hover, .menu-funcoes .vagas:hover{
+    background-color: var(--orange-color);
+
+}
+.menu-funcoes .publicar-vaga i, .menu-funcoes .vagas i{
+    font-size: 10rem;
+    color: #000;
+}
+.menu-funcoes .publicar-vaga h2, .menu-funcoes .vagas h2{
+    font-size: 2.5rem;
+    margin-top: -20px;
+    color: var(--gray-color);
+}
+.menu-funcoes .publicar-vaga p, .menu-funcoes .vagas p{
+    font-size: 1.6rem;
+    letter-spacing: 1px;
+    text-align: center;
+    color: #000;
+}
+
+footer {
+    height: 30px;
+    background-color: var(--orange-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+footer a {
+    font-size: 1.6rem;
+    color: #000;
+}
