@@ -21,7 +21,7 @@ html {
 
 }
 .container {
-    width: 80%;
+    width: 90%;
     margin: auto;
     padding: 20px;
 }
@@ -107,6 +107,7 @@ main .conteudo-hero {
     font-size: 3rem;
     color: var(--back-color);
     letter-spacing: 1px;
+    text-align: center;
 }
 .inscreva-se form input {
     font-size: 2.5rem;
@@ -132,6 +133,9 @@ main .conteudo-hero {
 main .conteudo-funcoes {
     background-color: var(--back-color);
     height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 main .menu-funcoes {
@@ -152,6 +156,7 @@ main .menu-funcoes {
     border-radius: 5px;
     padding: 10px;
     transition: all ease-in-out 0.3s;
+    text-align: center;
 }
 .menu-funcoes .publicar-vaga:hover, .menu-funcoes .vagas:hover{
     background-color: var(--orange-color);
@@ -169,7 +174,6 @@ main .menu-funcoes {
 .menu-funcoes .publicar-vaga p, .menu-funcoes .vagas p{
     font-size: 1.6rem;
     letter-spacing: 1px;
-    text-align: center;
     color: #000;
 }
 
@@ -181,6 +185,88 @@ footer {
     justify-content: center;
 }
 footer a {
-    font-size: 1.6rem;
+    font-size: 1.4rem;
     color: #000;
+}
+
+
+
+
+@media (width < 430px) {
+    .container {
+        width: 100%;
+    }
+    .cabecalho .conteudo-cabecalho {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        text-align: center;
+    }
+    .conteudo-cabecalho .title h1 {
+        font-size: 2.5rem;
+    }
+    .conteudo-cabecalho .menu ul {
+        gap: 10px;
+        justify-content: center;
+    }
+    .conteudo-cabecalho .menu ul .lista-menu a {
+        font-size: 1.2rem;
+        padding: 3px 6px;
+    }
+
+    .conteudo-hero h1 {
+        font-size: 3.5rem;
+        text-align: center;
+    }
+    .conteudo-hero p {
+        font-size: 1.6rem;
+        text-align: center;
+        color: #000;
+
+    }
+    .inscreva-se h2 {
+        font-size: 2rem;
+    }
+    .inscreva-se form {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+
+    }
+    .inscreva-se form input {
+        font-size: 1.8rem;
+    }
+    main .menu-funcoes {
+        gap: 20px;
+    }
+    .menu-funcoes .publicar-vaga, .menu-funcoes .vagas {
+        width: 150px;
+        height: 250px;
+    }
+    .menu-funcoes .publicar-vaga i, .menu-funcoes .vagas i{
+        font-size: 7rem;
+
+    }
+    .menu-funcoes .publicar-vaga h2, .menu-funcoes .vagas h2{
+        font-size: 1.8rem;
+        margin: 0;
+    }
+    .menu-funcoes .publicar-vaga p, .menu-funcoes .vagas p{
+        font-size: 1.2rem;
+    }
+}
+
+@media (width < 1000px) {
+    .cabecalho .conteudo-cabecalho {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .conteudo-cabecalho .menu ul {
+        gap: 10px;
+        justify-content: space-between;
+    }
 }
