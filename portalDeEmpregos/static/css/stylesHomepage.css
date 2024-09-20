@@ -14,10 +14,14 @@
 
 }
 
-html {
+body, html {
     font-size: 62.5%;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: var(--gray-color);
+    background-color: var(--back-color);
+    max-width: 100dvw;
+    height: 100dvh;
+    overflow: hidden;
+
 
 }
 .container {
@@ -27,15 +31,16 @@ html {
 }
 
 .cabecalho {
-    height: 120px;
+    height: 150px;
     max-width: 100dvw;
     border-bottom: 3px solid var(--orange-color);
+    background-color: var(--gray-color);
 }
 .cabecalho .conteudo-cabecalho {
     height: 100%;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    align-items: flex-end;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     justify-content: space-between;
 }
 .conteudo-cabecalho .title h1 {
@@ -45,34 +50,51 @@ html {
 .conteudo-cabecalho .title span {
     color: var(--orange-color);
 }
-.conteudo-cabecalho .menu ul{
+.conteudo-cabecalho  .menu {
     width: 100%;
+}
+
+.conteudo-cabecalho .menu ul{
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
-.conteudo-cabecalho .menu ul .lista-menu a {
+.conteudo-cabecalho .menu ul .lista-menu button {
     font-size: 2rem;
     font-weight: bold;
     color: var(--back-color);
+    background-color: transparent;
     padding: 5px 10px;
     text-transform: uppercase;
     transition: all ease-in-out 0.3s;
     border: 1px solid transparent;
     border-radius: 5px;
+    cursor: pointer;
 }
-.conteudo-cabecalho .menu ul .lista-menu a:hover {
+.conteudo-cabecalho .menu .lista-menu button:hover {
     background-color: var(--back-color);
     color: var(--orange-color);
 }
-
-main .hero {
-    height: 400px;
+main {
+    height: calc((100% - 150px) - 30px);
+    width: 100%;
+    display: flex;
+    transition: all ease-in-out 0.6s;
+}
+main .home {
+    height: 100%;
     background-image: url(../imagens/image-1.jpg);
     background-size: cover;
     background-position: center center;
 }
-main .conteudo-hero {
+main .section {
+    flex: 1;
+    display: none;
+}
+
+main .conteudo-home,
+main .conteudo-empresas,
+main .conteudo-trabalhadores {
     height: 100%;
     display: flex;
     align-items: center;
@@ -81,101 +103,149 @@ main .conteudo-hero {
     gap: 20px;
 
 }
-.conteudo-hero h1 {
+
+
+
+main .conteudo-empresas,
+main .conteudo-trabalhadores {
+    background-color: var(--back-color);
+    width: 100%;
+}
+
+main .conteudo-home h1,
+main .conteudo-empresas h1,
+main .conteudo-trabalhadores h1 {
     font-size: 6rem;
     color: var(--gray-color);
     letter-spacing: 1px;
     text-shadow: -1px 1px 1px var(--white-color);
 }
-.conteudo-hero p {
-    font-size: 2.5rem;
+
+
+main .conteudo-home p,
+main .conteudo-empresas p,
+main .conteudo-trabalhadores p {
+    font-size: 3rem;
     color: var(--gray-color);
     letter-spacing: 1px;
     text-shadow: -1px 1px 1px var(--white-color);
 }
 
-.inscreva-se {
-    height: 200px;
+
+main .conteudo-vagas {
+    height: 100%;
+    padding: 0;
+    display: flex;
+    align-items: center;
+}
+main .conteudo-vagas .menu-vagas {
+    width: 250px;
+    height: 100%;
+    
+}
+main .conteudo-vagas .menu-vagas ul {
+    height: 100%;
+}
+main .conteudo-vagas .menu-vagas ul li{
+    height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: 20px;
+    border-left: 3px solid var(--orange-color);
+    border-right: 3px solid var(--orange-color);
 }
 
-.inscreva-se h2 {
-    font-size: 3rem;
-    color: var(--back-color);
-    letter-spacing: 1px;
-    text-align: center;
-}
-.inscreva-se form input {
-    font-size: 2.5rem;
-    padding: 5px 10px;
-    border: none;
-    border-radius: 5px;
-}
-.inscreva-se form .input-email {
-    outline: none;
-    margin-right: 20px;
-}
-.inscreva-se form .input-inscrever {
-    cursor: pointer;
-    background-color: var(--orange-color);
-    font-weight: bold;
-    color: var(--back-color);
-    transition: all ease-in-out 0.3s;
-}
-.inscreva-se form .input-inscrever:hover {
+
+
+
+
+
+main .login {
     background-color: var(--back-color);
+}
+
+.conteudo-login {
+    width: 400px;
+    height: 500px;
+    border: 1px solid var(--gray-color);
+    border-radius: 5px;
+    padding: 20px;
+    box-shadow: 1px 1px 10px var(--orange-color);
+    background-color: var(--back-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.conteudo-login h2 {
+    margin-bottom: 10px;
+    padding: 10px;
+    font-size: 2.5rem;
+    text-align: center;
     color: var(--orange-color);
 }
-main .conteudo-funcoes {
-    background-color: var(--back-color);
-    height: 400px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-main .menu-funcoes {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 50px;
-}
-
-.menu-funcoes .publicar-vaga, .menu-funcoes .vagas {
-    width: 200px;
-    height: 300px;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    flex-direction: column;
-    border: none;
-    border-radius: 5px;
+.conteudo-login form {
     padding: 10px;
-    transition: all ease-in-out 0.3s;
-    text-align: center;
+    height: 200px;
+    
 }
-.menu-funcoes .publicar-vaga:hover, .menu-funcoes .vagas:hover{
-    background-color: var(--orange-color);
+.conteudo-login form .form-usuario, .conteudo-login form .form-senha {
+    padding: 10px 0;
+    display: flex;
+    align-items: center;
+}
 
-}
-.menu-funcoes .publicar-vaga i, .menu-funcoes .vagas i{
-    font-size: 10rem;
-    color: #000;
-}
-.menu-funcoes .publicar-vaga h2, .menu-funcoes .vagas h2{
-    font-size: 2.5rem;
-    margin-top: -20px;
+.conteudo-login form .form-usuario label, .conteudo-login form .form-senha label{
+    font-size: 2rem;
+    font-weight: bold;
+    width: 40%;
     color: var(--gray-color);
 }
-.menu-funcoes .publicar-vaga p, .menu-funcoes .vagas p{
-    font-size: 1.6rem;
-    letter-spacing: 1px;
-    color: #000;
+.conteudo-login form .form-usuario input, .conteudo-login form .form-senha input{
+    width: 100%;
+    font-size: 2.2rem;
+    outline: none;
+    padding: 5px 10px;
+    color: var(--gray-color);
+
 }
+
+.conteudo-login .form-mensagem {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 20px;
+}
+.conteudo-login .form-mensagem button {
+    background-color: var(--orange-color);
+    border: 1px solid var(--gray-color);
+    border-radius: 5px;
+    font-size: 2rem;
+    padding: 5px 10px;
+    text-align: center;
+    margin: auto;
+    cursor: pointer;
+}
+
+.conteudo-login .form-mensagem p {
+    font-size: 1.2rem;
+    text-align: center;
+}
+.conteudo-login .form-mensagem .error-mensagem {
+    color: #ff0000;
+}
+
+
+
+.section.active {
+    display: flex; /* Mostra a seção ativa */
+}
+
+
 
 footer {
     height: 30px;
@@ -210,52 +280,22 @@ footer a {
         gap: 10px;
         justify-content: center;
     }
-    .conteudo-cabecalho .menu ul .lista-menu a {
+    .conteudo-cabecalho .menu ul .lista-menu button {
         font-size: 1.2rem;
         padding: 3px 6px;
     }
 
-    .conteudo-hero h1 {
+    .conteudo-home h1 {
         font-size: 3.5rem;
         text-align: center;
     }
-    .conteudo-hero p {
+    .conteudo-home p {
         font-size: 1.6rem;
         text-align: center;
         color: #000;
 
     }
-    .inscreva-se h2 {
-        font-size: 2rem;
-    }
-    .inscreva-se form {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 10px;
-
-    }
-    .inscreva-se form input {
-        font-size: 1.8rem;
-    }
-    main .menu-funcoes {
-        gap: 20px;
-    }
-    .menu-funcoes .publicar-vaga, .menu-funcoes .vagas {
-        width: 150px;
-        height: 250px;
-    }
-    .menu-funcoes .publicar-vaga i, .menu-funcoes .vagas i{
-        font-size: 7rem;
-
-    }
-    .menu-funcoes .publicar-vaga h2, .menu-funcoes .vagas h2{
-        font-size: 1.8rem;
-        margin: 0;
-    }
-    .menu-funcoes .publicar-vaga p, .menu-funcoes .vagas p{
-        font-size: 1.2rem;
-    }
+    
 }
 
 @media (width < 1000px) {

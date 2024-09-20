@@ -13,22 +13,26 @@
     <header class="cabecalho">
         <section class="conteudo-cabecalho container">
             <div class="title">
-                <h1>Portal de <span>Empregos</span></h1>
+                <h1>Gerenciamento de <span>Empregos</span></h1>
             </div>
             <nav class="menu">
                 <ul>
                     <li class="lista-menu">
-                        <a href="">Home</a>
+                        <button onclick="mostrarSection('home')">Home</button>
                     </li>
                     <li class="lista-menu">
-                        <a href="">Vagas</a>
+                        <button onclick="mostrarSection('vagas')">Vagas</button>
                     </li>
                     <li class="lista-menu">
-                        <a href="">Publicar vaga</a>
+                        <button onclick="mostrarSection('empresas')">Empresas</button>
                     </li>
                     <li class="lista-menu">
-                        <a href="/login">Login</a>
+                        <button onclick="mostrarSection('trabalhadores')">Trabalhadores</button>
                     </li>
+                    <li class="lista-menu">
+                        <button onclick="mostrarSection('login')">Login</button>
+                    </li>
+                    
                 </ul>
             </nav>
         </section>
@@ -36,37 +40,101 @@
     </header>
 
     <main>
-        <section class="hero">
-            <div class="conteudo-hero container">
-                <h1>Encontre a Vaga Ideal</h1>
+        <section class="home section active" id="home">
+            <div class="conteudo-home container">
                 <p>Conectando talentos às melhores oputunidades do mercado.</p>
             </div>
         </section>
-        <section class="inscreva-se container">
-            <h2>Inscreva-se para receber novas vagas.</h2>
-            <form method="post">
-                <input type="email" name="email" id="email" class="input-email" placeholder="Digite seu melhor e-mail">
-                <input type="submit" value="Inscrever" class="input-inscrever">
-            </form>
-        </section>
-        <section class="conteudo-funcoes">
-            <div class="menu-funcoes container">
-                <a href="" class="publicar-vaga">
-                    <i class="bi bi-megaphone-fill"></i>
-                    <h2>Publique Vagas</h2>
-                    <p>Anuncie suas vagas e encontre os melhores talentos.</p>
-                </a>
-                <a href="" class="vagas">
-                    <i class="bi bi-suitcase-lg-fill"></i>
-                    <h2>Vagas</h2>
-                    <p>Explore centenas de oportunidades em diversas áreas.</p>
-                </a>
+
+
+
+        <section class="vagas section" id="vagas">
+            <div class="conteudo-vagas container">
+                <nav class="menu-vagas">
+                    <ul>
+                        <li>
+                            <button>Adcionar vaga</button>
+                            <button>Editar Vaga</button>
+                            <button>Remover vaga</button>
+                        </li>
+                    </ul>
+                </nav>
+                <div class="resultado-vagas"></div>
+                
             </div>
         </section>
+
+
+
+
+
+        <section class="empresas section" id="empresas">
+            <div class="conteudo-empresas container">
+                <h1>Empresas</h1>
+                
+            </div>
+        </section>
+
+
+
+
+
+
+        <section class="trabalhadores section" id="trabalhadores">
+            <div class="conteudo-trabalhadores container">
+                <h1>Trabalhadores</h1>
+                
+            </div>
+        </section>
+
+
+
+
+
+
+        <section class="login section" id="login">
+            <div class="conteudo-login container">
+                <h2>Login</h2>
+        
+                <form action="" method="post" id="loginForm">
+                    <div class="form-usuario">
+                        <label for="username">Usuário:</label>
+                        <input type="text" id="username" name="username" placeholder="Nome de Usuário" required>
+                    </div>
+                    <div class="form-senha">
+                        <label for="password">Senha:</label>
+                        <input type="password" id="password" name="password" placeholder="Senha" required>
+                    </div>
+                    <div class="form-mensagem">
+                        <button type="submit">Entrar</button>
+                        <p class="error-mensagem">mensagem de erro</p>
+                        <p>Não tem um cadastro! Peça para seu administrador lhe cadastrar no sistema</p>
+                    </div>
+                </form>
+            </div>
+        </section>
+        
     </main>
 
     <footer>
-        <a href="">Portal de Empregos © 2024</a>
+        <a href="#">Gerenciamento de Empregos © 2024</a>
     </footer>
+
+
+
+
+    <script>
+        function mostrarSection(sectionId) {
+            // Oculta todas as seções
+            const sections = document.querySelectorAll('main .section');
+            sections.forEach(section => {
+                section.classList.remove('active');
+            });
+    
+            // Mostra a seção específica
+            const activeSection = document.getElementById(sectionId);
+            activeSection.classList.add('active');
+        }
+    </script>
 </body>
 </html>
