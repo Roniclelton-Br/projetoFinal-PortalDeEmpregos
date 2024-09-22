@@ -11,6 +11,7 @@
     --orange-color: #E8491D;
     --back-color: #F4F4F4;
     --white-color: #ffffff;
+    --black-color: #000000;
 
 }
 
@@ -43,9 +44,24 @@ body, html {
     align-items: center;
     justify-content: space-between;
 }
+.conteudo-cabecalho .title {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+}
 .conteudo-cabecalho .title h1 {
     font-size: 3rem;
     color: var(--white-color);
+}
+
+.conteudo-cabecalho .title a {
+    font-size: 2rem;
+    color: var(--black-color);
+    transition: all ease-in-out 0.3s;
+}
+.conteudo-cabecalho .title a:hover {
+    color: var(--orange-color);
 }
 .conteudo-cabecalho .title span {
     color: var(--orange-color);
@@ -92,9 +108,7 @@ main .section {
     display: none;
 }
 
-main .conteudo-home,
-main .conteudo-empresas,
-main .conteudo-trabalhadores {
+main .conteudo-home {
     height: 100%;
     display: flex;
     align-items: center;
@@ -105,16 +119,7 @@ main .conteudo-trabalhadores {
 }
 
 
-
-main .conteudo-empresas,
-main .conteudo-trabalhadores {
-    background-color: var(--back-color);
-    width: 100%;
-}
-
-main .conteudo-home h1,
-main .conteudo-empresas h1,
-main .conteudo-trabalhadores h1 {
+main .conteudo-home h1 {
     font-size: 6rem;
     color: var(--gray-color);
     letter-spacing: 1px;
@@ -122,31 +127,49 @@ main .conteudo-trabalhadores h1 {
 }
 
 
-main .conteudo-home p,
-main .conteudo-empresas p,
-main .conteudo-trabalhadores p {
+main .conteudo-home p{
     font-size: 3rem;
-    color: var(--gray-color);
+    color: var(--black-color);
     letter-spacing: 1px;
     text-shadow: -1px 1px 1px var(--white-color);
 }
 
 
-main .conteudo-vagas {
+main .vagas .conteudo-vagas,
+main .trabalhadores .conteudo-trabalhadores,
+main .funcionarios .conteudo-funcionarios {
     height: 100%;
     padding: 0;
     display: flex;
     align-items: center;
 }
-main .conteudo-vagas .menu-vagas {
+
+main .empresas .conteudo-empresas {
+    height: 100%;
+    padding: 0;
+    display: flex;
+    align-items: center;
+}
+
+
+main .vagas .conteudo-vagas .menu-vagas,
+main .empresas .conteudo-empresas .menu-empresas,
+main .trabalhadores .conteudo-trabalhadores .menu-trabalhadores,
+main .funcionarios .conteudo-funcionarios .menu-funcionarios {
     width: 250px;
     height: 100%;
     
 }
-main .conteudo-vagas .menu-vagas ul {
+main .vagas .conteudo-vagas .menu-vagas ul,
+main .empresas .conteudo-empresas .menu-empresas ul,
+main .trabalhadores .conteudo-trabalhadores .menu-trabalhadores ul,
+main .funcionarios .conteudo-funcionarios .menu-funcionarios ul {
     height: 100%;
 }
-main .conteudo-vagas .menu-vagas ul li{
+main .vagas .conteudo-vagas .menu-vagas ul li,
+main .empresas .conteudo-empresas .menu-empresas ul li,
+main .trabalhadores .conteudo-trabalhadores .menu-trabalhadores ul li,
+main .funcionarios .conteudo-funcionarios .menu-funcionarios ul li {
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -162,89 +185,16 @@ main .conteudo-vagas .menu-vagas ul li{
 
 
 
-main .login {
-    background-color: var(--back-color);
-}
-
-.conteudo-login {
-    width: 400px;
-    height: 500px;
-    border: 1px solid var(--gray-color);
-    border-radius: 5px;
-    padding: 20px;
-    box-shadow: 1px 1px 10px var(--orange-color);
-    background-color: var(--back-color);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-}
-
-.conteudo-login h2 {
-    margin-bottom: 10px;
-    padding: 10px;
-    font-size: 2.5rem;
-    text-align: center;
-    color: var(--orange-color);
-}
-.conteudo-login form {
-    padding: 10px;
-    height: 200px;
-    
-}
-.conteudo-login form .form-usuario, .conteudo-login form .form-senha {
-    padding: 10px 0;
-    display: flex;
-    align-items: center;
-}
-
-.conteudo-login form .form-usuario label, .conteudo-login form .form-senha label{
-    font-size: 2rem;
-    font-weight: bold;
-    width: 40%;
-    color: var(--gray-color);
-}
-.conteudo-login form .form-usuario input, .conteudo-login form .form-senha input{
-    width: 100%;
-    font-size: 2.2rem;
-    outline: none;
-    padding: 5px 10px;
-    color: var(--gray-color);
-
-}
-
-.conteudo-login .form-mensagem {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    gap: 10px;
-    margin-top: 20px;
-}
-.conteudo-login .form-mensagem button {
-    background-color: var(--orange-color);
-    border: 1px solid var(--gray-color);
-    border-radius: 5px;
-    font-size: 2rem;
-    padding: 5px 10px;
-    text-align: center;
-    margin: auto;
-    cursor: pointer;
-}
-
-.conteudo-login .form-mensagem p {
-    font-size: 1.2rem;
-    text-align: center;
-}
-.conteudo-login .form-mensagem .error-mensagem {
-    color: #ff0000;
-}
 
 
 
 .section.active {
     display: flex; /* Mostra a seção ativa */
 }
-
+.conteudo-cabecalho .menu ul .lista-menu button.active {
+    background-color: var(--back-color);
+    color: var(--orange-color);
+}
 
 
 footer {
@@ -260,53 +210,3 @@ footer a {
 }
 
 
-
-
-@media (width < 430px) {
-    .container {
-        width: 100%;
-    }
-    .cabecalho .conteudo-cabecalho {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: space-between;
-        text-align: center;
-    }
-    .conteudo-cabecalho .title h1 {
-        font-size: 2.5rem;
-    }
-    .conteudo-cabecalho .menu ul {
-        gap: 10px;
-        justify-content: center;
-    }
-    .conteudo-cabecalho .menu ul .lista-menu button {
-        font-size: 1.2rem;
-        padding: 3px 6px;
-    }
-
-    .conteudo-home h1 {
-        font-size: 3.5rem;
-        text-align: center;
-    }
-    .conteudo-home p {
-        font-size: 1.6rem;
-        text-align: center;
-        color: #000;
-
-    }
-    
-}
-
-@media (width < 1000px) {
-    .cabecalho .conteudo-cabecalho {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: space-between;
-    }
-    .conteudo-cabecalho .menu ul {
-        gap: 10px;
-        justify-content: space-between;
-    }
-}

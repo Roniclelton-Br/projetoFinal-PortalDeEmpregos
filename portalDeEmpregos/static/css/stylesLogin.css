@@ -1,0 +1,114 @@
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+    box-sizing: border-box;
+}
+
+:root {
+    --gray-color: #35424A;
+    --orange-color: #E8491D;
+    --back-color: #F4F4F4;
+    --white-color: #ffffff;
+    --black-color: #000000;
+    --red-color: #ff0000;
+
+}
+
+body, html {
+    font-size: 62.5%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--back-color);
+    max-width: 100dvw;
+    height: 100dvh;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+main .login {
+    background-color: var(--back-color);
+}
+
+.conteudo-login {
+    width: 400px;
+    height: 500px;
+    border: 1px solid var(--gray-color);
+    border-radius: 5px;
+    padding: 20px;
+    background-color: var(--back-color);
+    box-shadow: 2px 2px 10px var(--orange-color), -2px -2px 10px var(--orange-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.conteudo-login h2 {
+    margin-top: -50px;
+    margin-bottom: 10px;
+    padding: 10px;
+    font-size: 2.5rem;
+    text-align: center;
+    color: var(--orange-color);
+}
+.conteudo-login span {
+    font-size: 2rem;
+    text-align: center;
+    font-weight: bold;
+    color: var(--orange-color);
+}
+.conteudo-login form {
+    padding: 10px;
+    height: 200px;
+    
+}
+.conteudo-login form .form-usuario, .conteudo-login form .form-senha {
+    padding: 10px 0;
+    display: flex;
+    align-items: center;
+}
+
+.conteudo-login form .form-usuario label, .conteudo-login form .form-senha label{
+    font-size: 2rem;
+    font-weight: bold;
+    width: 40%;
+    color: var(--gray-color);
+}
+.conteudo-login form .form-usuario input, .conteudo-login form .form-senha input{
+    width: 100%;
+    font-size: 2.2rem;
+    outline: none;
+    padding: 5px 10px;
+    color: var(--gray-color);
+
+}
+
+.conteudo-login .form-mensagem {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 20px;
+}
+.conteudo-login .form-mensagem button {
+    background-color: var(--orange-color);
+    border: 1px solid var(--gray-color);
+    border-radius: 5px;
+    font-size: 2rem;
+    padding: 5px 10px;
+    text-align: center;
+    margin: auto;
+    cursor: pointer;
+}
+
+.conteudo-login .form-mensagem p {
+    font-size: 1.2rem;
+    text-align: center;
+}
+.conteudo-login .form-mensagem .error-mensagem {
+    color: var(--red-color);
+}
