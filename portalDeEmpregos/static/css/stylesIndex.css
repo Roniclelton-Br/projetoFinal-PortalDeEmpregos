@@ -75,6 +75,11 @@ body, html {
     align-items: center;
     justify-content: space-between;
 }
+.conteudo-cabecalho .menu ul .lista-menu {
+    position: relative;
+    transition: all ease-in-out 0.3s;
+
+}
 .conteudo-cabecalho .menu ul .lista-menu button {
     font-size: 2rem;
     font-weight: bold;
@@ -91,6 +96,37 @@ body, html {
     background-color: var(--back-color);
     color: var(--orange-color);
 }
+
+.submenu {
+    display: none;
+    flex-direction: column;
+    gap: 10px;
+    width: 250px;
+    position: absolute;
+    border: 3px solid var(--orange-color);
+    border-radius: 5px;
+    background-color: var(--gray-color);
+    z-index: -1;
+}
+.submenu li {
+    width: 100%;
+}
+.submenu li button {
+    width: 100%;
+    text-align: left;
+    border: none;
+}
+
+.lista-menu:hover {
+    .submenu {
+
+        display: flex; 
+        z-index: 1;
+    }
+}
+
+
+
 main {
     height: calc((100% - 150px) - 30px);
     width: 100%;
@@ -150,42 +186,6 @@ main .empresas .conteudo-empresas {
     display: flex;
     align-items: center;
 }
-
-
-main .vagas .conteudo-vagas .menu-vagas,
-main .empresas .conteudo-empresas .menu-empresas,
-main .trabalhadores .conteudo-trabalhadores .menu-trabalhadores,
-main .funcionarios .conteudo-funcionarios .menu-funcionarios {
-    width: 250px;
-    height: 100%;
-    
-}
-main .vagas .conteudo-vagas .menu-vagas ul,
-main .empresas .conteudo-empresas .menu-empresas ul,
-main .trabalhadores .conteudo-trabalhadores .menu-trabalhadores ul,
-main .funcionarios .conteudo-funcionarios .menu-funcionarios ul {
-    height: 100%;
-}
-main .vagas .conteudo-vagas .menu-vagas ul li,
-main .empresas .conteudo-empresas .menu-empresas ul li,
-main .trabalhadores .conteudo-trabalhadores .menu-trabalhadores ul li,
-main .funcionarios .conteudo-funcionarios .menu-funcionarios ul li {
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 20px;
-    border-left: 3px solid var(--orange-color);
-    border-right: 3px solid var(--orange-color);
-}
-
-
-
-
-
-
-
 
 
 .section.active {

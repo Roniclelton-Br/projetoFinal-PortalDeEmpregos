@@ -22,16 +22,12 @@ body, html {
     background-color: var(--back-color);
     max-width: 100dvw;
     height: 100dvh;
-    overflow: hidden;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
 
-main .login {
-    background-color: var(--back-color);
-}
 
 .conteudo-login {
     width: 400px;
@@ -40,7 +36,7 @@ main .login {
     border-radius: 5px;
     padding: 20px;
     background-color: var(--back-color);
-    box-shadow: 2px 2px 10px var(--orange-color), -2px -2px 10px var(--orange-color);
+    box-shadow: 3px 3px 20px #E8491D,  -3px -3px 20px #E8491D;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -106,6 +102,7 @@ main .login {
 }
 
 .conteudo-login .form-mensagem p {
+    display: none;
     font-size: 1.2rem;
     text-align: center;
 }

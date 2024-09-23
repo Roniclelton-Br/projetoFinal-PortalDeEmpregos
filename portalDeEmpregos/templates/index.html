@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"/>
+
+    <link rel="shortcut icon" href="../static/imagens/display.svg" type="image/svg">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/stylesIndex.css') }}"/>
+    <title>Gerenciamento de Empregos</title>
+</head>
+<body>
+    <header class="cabecalho">
+        <section class="conteudo-cabecalho container">
+            <div class="title">
+                <h1>Gerenciamento de <span>Empregos</span></h1>
+                <a href="#" class="usuario">
+                    usuario
+                    <i class="bi bi-person-circle"></i>
+                </a>
+            </div>
+            <nav class="menu">
+                <ul>
+                    <li class="lista-menu">
+                        <button onclick="mostrarSection('home')" class="botao-menu active">Home</button>
+                    </li>
+                    <li class="lista-menu">
+                        <button onclick="mostrarSection('vagas')" class="botao-menu ">Vagas</button>
+                        <ul class="submenu">
+
+                            <li><button class="botao-menu " onclick="mostrarSection('cadastrarVaga')">Cadastrar Vaga</button></li>
+
+                            <li><button class="botao-menu " onclick="mostrarSection('EditarVaga')">Editar Vagas</button></li>
+
+                            <li><button class="botao-menu " onclick="mostrarSection('excluirVaga')">Excluir Vaga</button></li>
+
+                        </ul>
+                    </li>
+                    <li class="lista-menu">
+                        <button onclick="mostrarSection('empresas')" class="botao-menu ">Empresas</button>
+                        <ul class="submenu">
+                            
+                            <li><button class="botao-menu " onclick="mostrarSection('cadastrarEmpresa')">Cadastrar Empresa</button></li>
+
+                            <li><button class="botao-menu " onclick="mostrarSection('EditarEmpresa')">Editar Empresa</button></li>
+
+                            <li><button class="botao-menu " onclick="mostrarSection('excluirEmpresa')">Excluir Empresa</button></li>
+
+                        </ul>
+                    </li>
+                    <li class="lista-menu">
+                        <button onclick="mostrarSection('trabalhadores')" class="botao-menu ">Trabalhadores</button>
+                        <ul class="submenu">
+
+                            <li><button class="botao-menu " onclick="mostrarSection('cadastrarTrabalhador')">Cadastrar Trabalhador</button></li>
+
+                            <li><button class="botao-menu " onclick="mostrarSection('EditarTrabalhador')">Editar Trabalhadores</button></li>
+
+                            <li><button class="botao-menu " onclick="mostrarSection('excluirTrabalhador')">Excluir Trabalhador</button></li>
+
+                        </ul>
+                    </li>
+                    <li class="lista-menu">
+                        <button onclick="mostrarSection('funcionarios')" class="botao-menu ">Funcionários</button>
+                        <ul class="submenu">
+                            
+                            <li><button class="botao-menu " onclick="mostrarSection('cadastrarFuncionario')">Cadastrar Funcionario</button></li>
+
+                            <li><button class="botao-menu " onclick="mostrarSection('EditarFuncionario')">Editar Funcionarios</button></li>
+
+                            <li><button class="botao-menu " onclick="mostrarSection('excluirFuncionario')">Excluir Funcionario</button></li>
+
+                        </ul>
+                    </li>
+                    
+                </ul>
+            </nav>
+        </section>
+        
+    </header>
+
+    <main>
+        <section class="home section active" id="home">
+            <div class="conteudo-home container">
+                <p>Conectando talentos às melhores oputunidades do mercado.</p>
+
+                {% for vaga in vagas %}
+                <button>{{vaga[0]}} - {{vaga[1]}} - {{vaga[2]}}</button>
+                {% endfor %}
+            </div>
+        </section>
+
+
+        <section class="vagas section" id="vagas">
+            <div class="conteudo-vagas container">
+            
+                <div class="ver-vagas">
+                    <h1>Ver Vagas</h1>
+                </div>
+                
+            </div>
+        </section>
+
+        <section class="vagas section" id="cadastrarVaga">
+            <div class="conteudo-vagas container">
+            
+                <div class="cadastrar-vagas">
+                    <h1>Cadastrar Vaga</h1>
+                </div>
+                
+            </div>
+        </section>
+
+        <section class="vagas section" id="EditarVaga">
+            <div class="conteudo-vagas container">
+            
+                <div class="editar-vaga">
+                    <h1>Editar Vaga</h1>
+                </div>
+                
+            </div>
+        </section>
+
+        <section class="vagas section" id="excluirVaga">
+            <div class="conteudo-vagas container">
+            
+                <div class="excluir-vaga">
+                    <h1>Excluir Vaga</h1>
+                </div>
+                
+            </div>
+        </section>
+
+
+
+
+
+        <section class="empresas section" id="empresas">
+            <div class="conteudo-empresas container">
+
+                <div class="ver-empresas">
+                    <h1>Ver Empresas</h1>
+                </div>
+                
+            </div>
+        </section>
+
+        <section class="empresas section" id="cadastrarEmpresa">
+            <div class="conteudo-empresas container">
+
+                <div class="cadastrar-empresas">
+                    <h1>Cadastrar Empresas</h1>
+                </div>
+                
+            </div>
+        </section>
+
+        <section class="empresas section" id="EditarEmpresa">
+            <div class="conteudo-empresas container">
+
+                <div class="editar-empresas">
+                    <h1>Editar Empresas</h1>
+                </div>
+                
+            </div>
+        </section>
+
+        <section class="empresas section" id="excluirEmpresa">
+            <div class="conteudo-empresas container">
+
+                <div class="excluir-empresas">
+                    <h1>Excluir Empresas</h1>
+                </div>
+                
+            </div>
+        </section>
+
+
+
+
+
+
+        <section class="trabalhadores section" id="trabalhadores">
+            <div class="conteudo-trabalhadores container">
+                
+                <div class="ver-trabalhadores">
+                    <h1>Ver Trabalhadores</h1>
+                </div>
+                
+                
+            </div>
+        </section>
+
+
+        <section class="trabalhadores section" id="cadastrarTrabalhador">
+            <div class="conteudo-trabalhadores container">
+                
+                <div class="cadastrar-trabalhadores">
+                    <h1>Cadastrar Trabalhadores</h1>
+                </div>
+                
+                
+            </div>
+        </section>
+
+        <section class="trabalhadores section" id="EditarTrabalhador">
+            <div class="conteudo-trabalhadores container">
+                
+                <div class="editar-trabalhadores">
+                    <h1>Editar Trabalhadores</h1>
+                </div>
+                
+                
+            </div>
+        </section>
+
+        <section class="trabalhadores section" id="excluirTrabalhador">
+            <div class="conteudo-trabalhadores container">
+                
+                <div class="excluir-trabalhadores">
+                    <h1>Excluir Trabalhadores</h1>
+                </div>
+                
+                
+            </div>
+        </section>
+
+
+
+
+
+
+
+        <section class="funcionarios section" id="funcionarios">
+            <div class="conteudo-funcionarios container">
+                
+                <div class="ver-funcionarios">
+                    <h1>Ver Funcionário </h1>
+                </div>
+                
+                
+            </div>
+        </section>
+
+        <section class="funcionarios section" id="cadastrarFuncionario">
+            <div class="conteudo-funcionarios container">
+                
+                <div class="cadastrar-funcionarios">
+                    <h1>Cadastrar Funcionário </h1>
+                </div>
+                
+                
+            </div>
+        </section>
+
+        <section class="funcionarios section" id="EditarFuncionario">
+            <div class="conteudo-funcionarios container">
+                
+                <div class="editar-funcionarios">
+                    <h1>Editar Funcionário </h1>
+                </div>
+                
+                
+            </div>
+        </section>
+
+        <section class="funcionarios section" id="excluirFuncionario">
+            <div class="conteudo-funcionarios container">
+                
+                <div class="excluir-funcionarios">
+                    <h1>Excluir Funcionário </h1>
+                </div>
+                
+                
+            </div>
+        </section>
+
+        
+    </main>
+
+    <footer>
+        <a href="#">Gerenciamento de Empregos © 2024</a>
+        
+    </footer>
+
+
+
+
+    <script src="../static/js/script.js"></script>
+</body>
+</html>
