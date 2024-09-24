@@ -37,19 +37,19 @@
                         </ul>
                     </li>
                     <li class="lista-menu">
-                        <button onclick="mostrarSection('trabalhadores')" class="botao-menu">Trabalhadores</button>
+                        <button onclick="mostrarSection('candidato')" class="botao-menu">Candidatos</button>
                         <ul class="submenu">
-                            <li><button class="botao-menu" onclick="mostrarSection('cadastrarTrabalhador')">Cadastrar Trabalhador</button></li>
-                            <li><button class="botao-menu" onclick="mostrarSection('EditarTrabalhador')">Editar Trabalhadores</button></li>
-                            <li><button class="botao-menu" onclick="mostrarSection('excluirTrabalhador')">Excluir Trabalhador</button></li>
+                            <li><button class="botao-menu" onclick="mostrarSection('cadastrarCandidato')">Cadastrar candidato</button></li>
+                            <li><button class="botao-menu" onclick="mostrarSection('EditarCandidato')">Editar candidato</button></li>
+                            <li><button class="botao-menu" onclick="mostrarSection('excluirCandidato')">Excluir candidato</button></li>
                         </ul>
                     </li>
                     <li class="lista-menu">
-                        <button onclick="mostrarSection('funcionarios')" class="botao-menu">Funcionários</button>
+                        <button onclick="mostrarSection('aplicacao')" class="botao-menu">Aplicação</button>
                         <ul class="submenu">
-                            <li><button class="botao-menu" onclick="mostrarSection('cadastrarFuncionario')">Cadastrar Funcionario</button></li>
-                            <li><button class="botao-menu" onclick="mostrarSection('EditarFuncionario')">Editar Funcionários</button></li>
-                            <li><button class="botao-menu" onclick="mostrarSection('excluirFuncionario')">Excluir Funcionario</button></li>
+                            <li><button class="botao-menu" onclick="mostrarSection('cadastrarAplicacao')">Cadastrar Aplicacao</button></li>
+                            <li><button class="botao-menu" onclick="mostrarSection('EditarAplicacao')">Editar Aplicação</button></li>
+                            <li><button class="botao-menu" onclick="mostrarSection('excluirAplicacao')">Excluir Aplicacao</button></li>
                         </ul>
                     </li>
                 </ul>
@@ -61,14 +61,11 @@
         <section class="home section active" id="home">
             <div class="conteudo-home container">
                 <p>Conectando talentos às melhores oportunidades do mercado.</p>
-                {% for vaga in vagas %}
-                <button>{{vaga[0]}} - {{vaga[1]}} - {{vaga[2]}}</button>
-                {% endfor %}
             </div>
         </section>
 
         <section class="vagas section" id="vagas">
-            <div class="conteudo-cabecalho container">
+            <div class="conteudo-vagas container">
                 <div class="ver-vagas">
                     <ul>
                         {% for vaga in vagas_ver %}
@@ -139,66 +136,66 @@
             </div>
         </section>
 
-        <section class="trabalhadores section" id="trabalhadores">
-            <div class="conteudo-trabalhadores container">
-                <div class="ver-trabalhadores">
-                    <h1>Ver Trabalhadores</h1>
+        <section class="candidato section" id="candidato">
+            <div class="conteudo-candidato container">
+                <div class="ver-candidato">
+                    <h1>Ver candidato</h1>
                 </div>
             </div>
         </section>
 
-        <section class="trabalhadores section" id="cadastrarTrabalhador">
-            <div class="conteudo-trabalhadores container">
-                <div class="cadastrar-trabalhadores">
-                    <h1>Cadastrar Trabalhadores</h1>
+        <section class="candidato section" id="cadastrarCandidato">
+            <div class="conteudo-candidato container">
+                <div class="cadastrar-candidato">
+                    <h1>Cadastrar candidato</h1>
                 </div>
             </div>
         </section>
 
-        <section class="trabalhadores section" id="EditarTrabalhador">
-            <div class="conteudo-trabalhadores container">
-                <div class="editar-trabalhadores">
-                    <h1>Editar Trabalhadores</h1>
+        <section class="candidato section" id="EditarCandidato">
+            <div class="conteudo-candidato container">
+                <div class="editar-candidato">
+                    <h1>Editar candidato</h1>
                 </div>
             </div>
         </section>
 
-        <section class="trabalhadores section" id="excluirTrabalhador">
-            <div class="conteudo-trabalhadores container">
-                <div class="excluir-trabalhadores">
-                    <h1>Excluir Trabalhadores</h1>
+        <section class="candidato section" id="excluirCandidato">
+            <div class="conteudo-candidato container">
+                <div class="excluir-candidato">
+                    <h1>Excluir candidato</h1>
                 </div>
             </div>
         </section>
 
-        <section class="funcionarios section" id="funcionarios">
-            <div class="conteudo-funcionarios container">
-                <div class="ver-funcionarios">
-                    <h1>Ver Funcionário</h1>
+        <section class="aplicacao section" id="aplicacao">
+            <div class="conteudo-aplicacao container">
+                <div class="ver-aplicacao">
+                    <h1>Ver Aplicação</h1>
                 </div>
             </div>
         </section>
 
-        <section class="funcionarios section" id="cadastrarFuncionario">
-            <div class="conteudo-funcionarios container">
-                <div class="cadastrar-funcionarios">
-                    <h1>Cadastrar Funcionário</h1>
+        <section class="aplicacao section" id="cadastrarAplicacao">
+            <div class="conteudo-aplicacao container">
+                <div class="cadastrar-aplicacao">
+                    <h1>Cadastrar Aplicação</h1>
                 </div>
             </div>
         </section>
 
-        <section class="funcionarios section" id="EditarFuncionario">
-            <div class="conteudo-funcionarios container">
-                <div class="editar-funcionarios">
-                    <h1>Editar Funcionário</h1>
+        <section class="aplicacao section" id="EditarAplicacao">
+            <div class="conteudo-aplicacao container">
+                <div class="editar-aplicacao">
+                    <h1>Editar Aplicação</h1>
                 </div>
             </div>
         </section>
 
-        <section class="funcionarios section" id="excluirFuncionario">
-            <div class="conteudo-funcionarios container">
-                <div class="excluir-funcionarios">
-                    <h1>Excluir Funcionário</h1>
+        <section class="aplicacao section" id="excluirAplicacao">
+            <div class="conteudo-aplicacao container">
+                <div class="excluir-aplicacao">
+                    <h1>Excluir Aplicação</h1>
                 </div>
             </div>
         </section>
