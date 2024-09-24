@@ -45,6 +45,11 @@ def login():
 def homepage():
     return render_template('index.html',  username=session.get('username'))
 
+@app.route('/dashboard')
+def dashboard():
+    if 'username' in session:
+        return f'Welcome {session["username"]}!'  # Substitua pelo seu template de dashboard
+    return redirect(url_for('login'))
 
 if __name__ == '__main__':
     app.run(debug=True, host = '0.0.0.0', port = 5500)
