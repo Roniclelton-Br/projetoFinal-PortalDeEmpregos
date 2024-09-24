@@ -12,19 +12,16 @@
     --back-color: #F4F4F4;
     --white-color: #ffffff;
     --black-color: #000000;
-
 }
 
 body, html {
     font-size: 62.5%;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: var(--back-color);
-    max-width: 100dvw;
-    height: 100dvh;
-    overflow: hidden;
-
-
+    height: 100vh; /* Garante que o body ocupe 100% da altura da tela */
+    overflow: hidden; /* Impede a rolagem */
 }
+
 .container {
     width: 90%;
     margin: auto;
@@ -33,10 +30,10 @@ body, html {
 
 .cabecalho {
     height: 150px;
-    max-width: 100dvw;
     border-bottom: 3px solid var(--orange-color);
     background-color: var(--gray-color);
 }
+
 .cabecalho .conteudo-cabecalho {
     height: 100%;
     display: flex;
@@ -44,12 +41,14 @@ body, html {
     align-items: center;
     justify-content: space-between;
 }
+
 .conteudo-cabecalho .title {
     display: flex;
     width: 100%;
     align-items: center;
     justify-content: space-between;
 }
+
 .conteudo-cabecalho .title h1 {
     font-size: 3rem;
     color: var(--white-color);
@@ -60,26 +59,30 @@ body, html {
     color: var(--black-color);
     transition: all ease-in-out 0.3s;
 }
+
 .conteudo-cabecalho .title a:hover {
     color: var(--orange-color);
 }
+
 .conteudo-cabecalho .title span {
     color: var(--orange-color);
 }
-.conteudo-cabecalho  .menu {
+
+.conteudo-cabecalho .menu {
     width: 100%;
 }
 
-.conteudo-cabecalho .menu ul{
+.conteudo-cabecalho .menu ul {
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
+
 .conteudo-cabecalho .menu ul .lista-menu {
     position: relative;
     transition: all ease-in-out 0.3s;
-
 }
+
 .conteudo-cabecalho .menu ul .lista-menu button {
     font-size: 2rem;
     font-weight: bold;
@@ -92,6 +95,7 @@ body, html {
     border-radius: 5px;
     cursor: pointer;
 }
+
 .conteudo-cabecalho .menu .lista-menu button:hover {
     background-color: var(--back-color);
     color: var(--orange-color);
@@ -108,40 +112,38 @@ body, html {
     background-color: var(--gray-color);
     z-index: -1;
 }
+
 .submenu li {
     width: 100%;
 }
+
 .submenu li button {
     width: 100%;
     text-align: left;
     border: none;
 }
 
-.lista-menu:hover {
-    .submenu {
-
-        display: flex; 
-        z-index: 1;
-    }
+.lista-menu:hover .submenu {
+    display: flex; 
+    z-index: 1;
 }
-
-
 
 main {
-    height: calc((100% - 150px) - 30px);
-    width: 100%;
+    height: calc(100% - 180px); /* Ajusta a altura para caber o cabeçalho e o footer */
     display: flex;
-    transition: all ease-in-out 0.6s;
 }
+
 main .home {
-    height: 100%;
+    flex: 1;
     background-image: url(../imagens/image-1.jpg);
     background-size: cover;
     background-position: center center;
 }
+
 main .section {
     flex: 1;
     display: none;
+    overflow-y: auto; /* Permite rolagem na seção */
 }
 
 main .conteudo-home {
@@ -151,9 +153,7 @@ main .conteudo-home {
     justify-content: center;
     flex-direction: column;
     gap: 20px;
-
 }
-
 
 main .conteudo-home h1 {
     font-size: 6rem;
@@ -162,40 +162,42 @@ main .conteudo-home h1 {
     text-shadow: -1px 1px 1px var(--white-color);
 }
 
-
-main .conteudo-home p{
+main .conteudo-home p {
     font-size: 3rem;
     color: var(--black-color);
     letter-spacing: 1px;
     text-shadow: -1px 1px 1px var(--white-color);
 }
 
-
-main .vagas .conteudo-vagas,
-main .trabalhadores .conteudo-trabalhadores,
-main .funcionarios .conteudo-funcionarios {
-    height: 100%;
-    padding: 0;
-    display: flex;
-    align-items: center;
+main .vagas .conteudo-vagas {
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.9); /* Fundo branco semitransparente */
+    border-radius: 10px;
 }
 
-main .empresas .conteudo-empresas {
-    height: 100%;
-    padding: 0;
-    display: flex;
-    align-items: center;
+.vaga_ver {
+    font-size: 25px;
+    list-style: none;
+    margin-bottom: 40px;
+    padding: 10px; /* Espaçamento interno */
+    background-color: var(--white-color); /* Fundo para destacar a lista */
+    border-radius: 5px; /* Arredonda os cantos */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra suave */
 }
 
+.vaga_ver:hover {
+    color: var(--orange-color);
+    transform: scale(1.1); /* Efeito de zoom ao passar o mouse */
+}
 
 .section.active {
     display: flex; /* Mostra a seção ativa */
 }
+
 .conteudo-cabecalho .menu ul .lista-menu button.active {
     background-color: var(--back-color);
     color: var(--orange-color);
 }
-
 
 footer {
     height: 30px;
@@ -204,9 +206,8 @@ footer {
     align-items: center;
     justify-content: center;
 }
+
 footer a {
     font-size: 1.4rem;
     color: #000;
 }
-
-
