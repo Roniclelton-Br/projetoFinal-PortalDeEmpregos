@@ -18,8 +18,8 @@ body, html {
     font-size: 62.5%;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: var(--back-color);
-    height: 100vh; /* Garante que o body ocupe 100% da altura da tela */
-    overflow: hidden; /* Impede a rolagem */
+    height: 100vh;
+    overflow: hidden;
 }
 
 .container {
@@ -129,7 +129,7 @@ body, html {
 }
 
 main {
-    height: calc(100% - 180px); /* Ajusta a altura para caber o cabeçalho e o footer */
+    height: calc(100% - 180px);
     display: flex;
 }
 
@@ -143,7 +143,7 @@ main .home {
 main .section {
     flex: 1;
     display: none;
-    overflow-y: auto; /* Permite rolagem na seção */
+    overflow-y: auto;
 }
 
 main .conteudo-home {
@@ -171,27 +171,42 @@ main .conteudo-home p {
 
 main .vagas .conteudo-vagas {
     padding: 20px;
-    background-color: rgba(255, 255, 255, 0.9); /* Fundo branco semitransparente */
+    background-color: var(--white-color); /* Fundo branco */
     border-radius: 10px;
+    height: 100%;
+    overflow-y: auto;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-.vaga_ver {
+main .empresas .conteudo-empresas {
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    height: 100%;
+    overflow-y: auto;
+}
+
+.ver {
     font-size: 25px;
     list-style: none;
     margin-bottom: 40px;
-    padding: 10px; /* Espaçamento interno */
-    background-color: var(--white-color); /* Fundo para destacar a lista */
-    border-radius: 5px; /* Arredonda os cantos */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    padding: 10px;
+    background-color: var(--white-color);
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    transition: transform 0.3s;
 }
 
-.vaga_ver:hover {
+.ver:hover {
     color: var(--orange-color);
-    transform: scale(1.1); /* Efeito de zoom ao passar o mouse */
+    transform: scale(1.05);
 }
 
 .section.active {
-    display: flex; /* Mostra a seção ativa */
+    display: flex;
 }
 
 .conteudo-cabecalho .menu ul .lista-menu button.active {
@@ -210,4 +225,22 @@ footer {
 footer a {
     font-size: 1.4rem;
     color: #000;
+}
+
+/* Estilos do scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--back-color);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--orange-color);
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: darkorange;
 }

@@ -68,7 +68,7 @@
         </section>
 
         <section class="vagas section" id="vagas">
-            <div class="conteudo-vagas container">
+            <div class="conteudo-cabecalho container">
                 <div class="ver-vagas">
                     <ul>
                         {% for vaga in vagas_ver %}
@@ -106,7 +106,11 @@
         <section class="empresas section" id="empresas">
             <div class="conteudo-empresas container">
                 <div class="ver-empresas">
-                    <h1>Ver Empresas</h1>
+                    <h1><ul>
+                        {% for empresas in empresas_ver %}
+                        {{ empresas|safe }}  <!-- 'safe' para permitir HTML seguro -->
+                        {% endfor %}
+                    </ul></h1>
                 </div>
             </div>
         </section>
