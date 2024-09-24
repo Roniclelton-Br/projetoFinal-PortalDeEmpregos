@@ -1,8 +1,9 @@
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template, request, redirect, url_for, session
 import mysql.connector
 from mysql.connector import Error
 
 app = Flask(__name__)
+app.secret_key = 'my_secret_key'
 
 @app.route('/', methods=['GET','POST'])
 def login():
@@ -26,6 +27,7 @@ def login():
                 if usuario:
                     if usuario[-1] == password:  # Altere o índice se necessário
                         print(usuario)
+                        session['username'] = usuario[1]
                         return redirect(url_for('homepage'))
                     else:
                         texto = 'Senha incorreta'
@@ -41,7 +43,8 @@ def login():
 
 @app.route('/index')
 def homepage():
-    return render_template('index.html')
+    return render_template('index.html',  username=session.get('username'))
+
 
 if __name__ == '__main__':
     app.run(debug=True)
