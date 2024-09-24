@@ -1,39 +1,47 @@
-from flask import Flask, render_template, url_for, request
+from flask import Flask, render_template, request, redirect, url_for
+import mysql.connector
+from mysql.connector import Error
 
 app = Flask(__name__)
 
-@app.route('/')
+@app.route('/', methods=['GET','POST'])
 def login():
-    return render_template('login.html')
+    texto = ''  # Inicializando a variável de texto
+    if request.method == 'POST':
+        try:
+            conexao_bd = mysql.connector.connect(
+                host='localhost',
+                user='root',
+                password='mysql',
+                database='portaldeempregos',
+                auth_plugin='mysql_native_password'
+            )
+            with conexao_bd.cursor() as conn:
+                username = request.form['username']
+                password = request.form['password']
 
+                conn.execute('SELECT * FROM adm WHERE username_adm = %s', (username,))
+                usuario = conn.fetchone()  # Use fetchone para pegar um único usuário
 
+                if usuario:
+                    if usuario[-1] == password:  # Altere o índice se necessário
+                        print(usuario)
+                        return redirect(url_for('homepage'))
+                    else:
+                        texto = 'Senha incorreta'
+                else:
+                    texto = 'Usuário incorreto'
+        except Error as e:
+            texto = f'Erro de conexão: {e}'
+        finally:
+            if conexao_bd.is_connected():
+                conexao_bd.close()  # Feche a conexão após o uso
 
+    return render_template('login.html', texto=texto)
 
 @app.route('/index')
 def homepage():
     return render_template('index.html')
-
-
-
-
-# EXEMPLO FEITO POR PROF/: TARIK
-#@app.route('/')
-# def homepage():
-#     listaDeVagas = ([1, "Jorge", "Cabelereiro"], [2,"Matheus", "Assistente"], [3,"Maicão", "Pedreiro"])
-#     return render_template('homepage.html', vagas=listaDeVagas)
-
-
-
-# @app.route('/login', methods=['POST'])
-# def validar():
-#     nomeUsuario = request.form.get("username")
-#     senhaUsuario = request.form.get("password")
-
-#     if (nomeUsuario == "Teste" and senhaUsuario == "123"):
-#         return "Parabéns, acesso autorizado"
-    
-#     return "Acesso negado"
-
 
 if __name__ == '__main__':
     app.run(debug=True)

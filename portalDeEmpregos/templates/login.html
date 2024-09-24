@@ -13,7 +13,7 @@
             <h2>Gerenciamento de Empregos</h2>
             <span>Login</span>
     
-            <form action="/autenticar" method="post" id="loginForm">
+            <form method="post" id="loginForm">
                 <div class="form-usuario">
                     <label for="username">Usuário:</label>
                     <input type="text" id="username" name="username" placeholder="Nome de Usuário" required>
@@ -24,7 +24,7 @@
                 </div>
                 <div class="form-mensagem">
                     <button type="submit">Entrar</button>
-                    <p class="error-mensagem">mensagem de erro</p>
+                    <p class="error-mensagem"> {{ texto }} </p>
                     <p>Não tem um cadastro! Peça para seu administrador lhe cadastrar no sistema</p>
                 </div>
             </form>
