@@ -69,26 +69,15 @@ def homepage():
                 info_empresas = f'<li class="ver">{empresa[1]}</li>'
                 empresas.append(info_empresas)
     except pymysql.MySQLError as erro:
-        logging.error(f'Erro ao buscar dados: {erro}')
-        vagas = ['Erro ao buscar vagas.']
-        empresas = ['Erro ao buscar empresas.']
-    finally:
-        if conexao_bd:
-            conexao_bd.close()
-
-    return render_template('index.html', username=session.get('username'), vagas_ver=vagas, empresas_ver=empresas)
-
-    
-    except Error as erro:
         logging.error(f'Erro ao buscar vagas: {erro}')
         vagas = ['Erro ao buscar vagas.']
         empresas = ['Erro ao buscar empresas.']
         candidato = ['Erro ao buscar candidatos.']
         aplicacoes = ['Erro ao buscar aplicações.']
+    finally:
+        if conexao_bd:
+            conexao_bd.close()
 
-
-
-    
     return render_template('index.html', username=session.get('username'), vagas_ver=vagas,  empresas_ver=empresas,  candidato_ver=candidatos, aplicacao_ver=aplicacoes)
 
 
