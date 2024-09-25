@@ -193,13 +193,15 @@ main .candidato .conteudo-candidato  {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-    transition: transform 0.3s;
+    transition: all ease-in-out 0.5s;
     cursor: pointer;
+    height:52px;
 }
 
 .ver:hover {
     color: var(--orange-color);
     transform: scale(1.02);
+    height: auto;
 }
 
 .section.active {

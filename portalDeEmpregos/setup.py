@@ -57,6 +57,16 @@ CONSTRAINT fk_candidato FOREIGN KEY (id_candidato) REFERENCES candidato(id_candi
 ''')
 
 conexaoBd.manipular('''
+CREATE TABLE portaldeempregos.adm(
+id_adm INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+nome_adm VARCHAR(255) NOT NULL,
+username_adm VARCHAR(255),
+password_adm VARCHAR(15) NOT NULL
+);
+''')
+
+
+conexaoBd.manipular('''
 INSERT INTO portaldeempregos.empresa (nome_empresa, cnpj_empresa, localizacao_empresa, porte_empresa, descricao_empresa)
 VALUES
 ('Tech Innovators', '11111111000101', 'São Paulo, SP', 'Grande', 'Líder em inovação tecnológica e soluções digitais.'),
@@ -87,6 +97,16 @@ VALUES
 ('Beatriz Santos', '34567890123', '31987654321', 'Rua das Palmeiras, 500, Belo Horizonte, MG', 'beatriz.santos@example.com'),
 ('Diego Costa', '45678901234', '41987654321', 'Av. Paraná, 1500, Curitiba, PR', 'diego.costa@example.com'),
 ('Fernanda Oliveira', '56789012345', '51987654321', 'Rua Bento Gonçalves, 700, Porto Alegre, RS', 'fernanda.oliveira@example.com');
+''')
+
+
+
+conexaoBd.manipular('''
+INSERT INTO portaldeempregos.adm (nome_adm, username_adm, password_adm)
+VALUES
+('Ricardo', 'rik2m6', 'henriqueMM6'),
+('Roniclelton', 'ronibr93', 'roni123'),
+('Luis', 'luisOtavio', 'luislima123');
 ''')
 
 

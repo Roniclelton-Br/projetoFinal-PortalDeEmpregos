@@ -79,7 +79,7 @@ def homepage():
                 resultado_candidato = conn.fetchall()
 
                 for candidato in resultado_candidato:
-                    info_candidato = f'<li class="ver">{candidato}</li>'  # Ajuste o índice conforme necessário
+                    info_candidato = f'<li class="ver">{candidato[1]}<br><br>ID: {candidato[0]}<br>CPF: {candidato[2]}<br>TELEFONE: {candidato[3]}<br>ENDEREÇO: {candidato[4]}</li>'  # Ajuste o índice conforme necessário
                     candidatos.append(info_candidato)
 
 
