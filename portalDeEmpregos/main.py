@@ -44,6 +44,8 @@ def login():
 def homepage():
     vagas = []  # Lista para armazenar as vagas
     empresas = []
+    candidatos = []
+    aplicacoes = []
 
     try:
         with mysql.connector.connect(
@@ -69,13 +71,41 @@ def homepage():
                 for empresa in resultado_empresas:
                     info_empresas = f'<li class="ver">{empresa[1]}</li>'  # Ajuste o índice conforme necessário
                     empresas.append(info_empresas)
-                   
+
+
+                
+                #ver candidatos
+                conn.execute("SELECT * FROM candidato")
+                resultado_candidato = conn.fetchall()
+
+                for candidato in resultado_candidato:
+                    info_candidato = f'<li class="ver">{candidato}</li>'  # Ajuste o índice conforme necessário
+                    candidatos.append(info_candidato)
+
+
+
+                #ver aplicações
+                conn.execute("SELECT * FROM aplicacao")
+                resultado_aplicacao = conn.fetchall()
+
+                for aplicacao in resultado_aplicacao:
+                    info_aplicacao = f'<li class="ver">ID: {aplicacao[0]} </li>'  # Ajuste o índice conforme necessário
+                    aplicacoes.append(info_aplicacao)
+
+
+    
     except Error as erro:
         logging.error(f'Erro ao buscar vagas: {erro}')
         vagas = ['Erro ao buscar vagas.']
         empresas = ['Erro ao buscar empresas.']
+        candidato = ['Erro ao buscar candidatos.']
+        aplicacoes = ['Erro ao buscar aplicações.']
 
-    return render_template('index.html', username=session.get('username'), vagas_ver=vagas,  empresas_ver=empresas)
+
+
+    
+    return render_template('index.html', username=session.get('username'), vagas_ver=vagas,  empresas_ver=empresas,  candidato_ver=candidatos, aplicacao_ver=aplicacoes)
+
 
 
 if __name__ == '__main__':

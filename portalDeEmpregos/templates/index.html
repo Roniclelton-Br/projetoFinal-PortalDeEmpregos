@@ -67,11 +67,13 @@
         <section class="vagas section" id="vagas">
             <div class="conteudo-vagas container">
                 <div class="ver-vagas">
-                    <ul>
-                        {% for vaga in vagas_ver %}
-                        {{ vaga|safe }}  <!-- 'safe' para permitir HTML seguro -->
-                        {% endfor %}
-                    </ul>
+                    <h1>
+                        <ul>
+                            {% for vaga in vagas_ver %}
+                            {{ vaga|safe }}  <!-- 'safe' para permitir HTML seguro -->
+                            {% endfor %}
+                        </ul>
+                    </h1>
                 </div>
             </div>
         </section>
@@ -103,11 +105,13 @@
         <section class="empresas section" id="empresas">
             <div class="conteudo-empresas container">
                 <div class="ver-empresas">
-                    <h1><ul>
-                        {% for empresas in empresas_ver %}
-                        {{ empresas|safe }}  <!-- 'safe' para permitir HTML seguro -->
-                        {% endfor %}
-                    </ul></h1>
+                    <h1>
+                        <ul>
+                            {% for empresas in empresas_ver %}
+                            {{ empresas|safe }}  <!-- 'safe' para permitir HTML seguro -->
+                            {% endfor %}
+                        </ul>
+                    </h1>
                 </div>
             </div>
         </section>
@@ -139,7 +143,13 @@
         <section class="candidato section" id="candidato">
             <div class="conteudo-candidato container">
                 <div class="ver-candidato">
-                    <h1>Ver candidato</h1>
+                    <h1>
+                        <ul>
+                            {% for candidato in candidato_ver %}
+                            {{ candidato|safe }}  <!-- 'safe' para permitir HTML seguro -->
+                            {% endfor %}
+                        </ul>
+                    </h1>
                 </div>
             </div>
         </section>
@@ -171,7 +181,13 @@
         <section class="aplicacao section" id="aplicacao">
             <div class="conteudo-aplicacao container">
                 <div class="ver-aplicacao">
-                    <h1>Ver Aplicação</h1>
+                    <h1>
+                        <ul>
+                            {% for aplicacao in aplicacao_ver %}
+                            {{ aplicacao|safe }}  <!-- 'safe' para permitir HTML seguro -->
+                            {% endfor %}
+                        </ul>
+                    </h1>
                 </div>
             </div>
         </section>
