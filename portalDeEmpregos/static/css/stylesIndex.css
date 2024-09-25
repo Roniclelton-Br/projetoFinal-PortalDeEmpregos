@@ -182,6 +182,7 @@ main .candidato .conteudo-candidato  {
 
 
 .ver {
+    position: relative;
     font-size: 25px;
     list-style: none;
     margin-bottom: 40px;
@@ -195,14 +196,19 @@ main .candidato .conteudo-candidato  {
     white-space: nowrap;
     transition: all ease-in-out 0.5s;
     cursor: pointer;
-    height:52px;
+    text-wrap: wrap;
+}
+.ver div {
+    display: none;
 }
 
 .ver:hover {
     color: var(--orange-color);
     transform: scale(1.02);
-    height: auto;
 }
+/* .ver:hover div {
+    display: block;
+} */
 
 .section.active {
     display: flex;
