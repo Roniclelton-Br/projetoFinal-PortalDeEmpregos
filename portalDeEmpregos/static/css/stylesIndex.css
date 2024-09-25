@@ -131,6 +131,7 @@ body, html {
 main {
     height: calc(100% - 180px);
     display: flex;
+    background-color: var(--white-color);
 }
 
 main .home {
@@ -169,40 +170,38 @@ main .conteudo-home p {
     text-shadow: -1px 1px 1px var(--white-color);
 }
 
-main .vagas .conteudo-vagas {
+
+main .vagas .conteudo-vagas,
+main .empresas .conteudo-empresas,
+main .candidato .conteudo-candidato  {
     padding: 20px;
-    background-color: var(--white-color); /* Fundo branco */
     border-radius: 10px;
     height: 100%;
     overflow-y: auto;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-main .empresas .conteudo-empresas {
-    padding: 20px;
-    background-color: rgba(255, 255, 255, 0.9);
-    border-radius: 10px;
-    height: 100%;
-    overflow-y: auto;
-}
 
 .ver {
     font-size: 25px;
     list-style: none;
     margin-bottom: 40px;
     padding: 10px;
-    background-color: var(--white-color);
+    background-color: var(--back-color);
+    border: 1px solid var(--gray-color);
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-    transition: transform 0.3s;
+    transition: all ease-in-out 0.5s;
+    cursor: pointer;
+    height:52px;
 }
 
 .ver:hover {
     color: var(--orange-color);
-    transform: scale(1.05);
+    transform: scale(1.02);
+    height: auto;
 }
 
 .section.active {

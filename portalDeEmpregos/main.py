@@ -43,6 +43,8 @@ def login():
 def homepage():
     vagas = []
     empresas = []
+    candidatos = []
+    aplicacoes = []
 
     try:
         conexao_bd = pymysql.connect(
@@ -63,7 +65,6 @@ def homepage():
             # Ver empresas
             conn.execute("SELECT * FROM empresa")
             resultado_empresas = conn.fetchall()
-
             for empresa in resultado_empresas:
                 info_empresas = f'<li class="ver">{empresa[1]}</li>'
                 empresas.append(info_empresas)
@@ -76,6 +77,20 @@ def homepage():
             conexao_bd.close()
 
     return render_template('index.html', username=session.get('username'), vagas_ver=vagas, empresas_ver=empresas)
+
+    
+    except Error as erro:
+        logging.error(f'Erro ao buscar vagas: {erro}')
+        vagas = ['Erro ao buscar vagas.']
+        empresas = ['Erro ao buscar empresas.']
+        candidato = ['Erro ao buscar candidatos.']
+        aplicacoes = ['Erro ao buscar aplicações.']
+
+
+
+    
+    return render_template('index.html', username=session.get('username'), vagas_ver=vagas,  empresas_ver=empresas,  candidato_ver=candidatos, aplicacao_ver=aplicacoes)
+
 
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0', port=5500)
