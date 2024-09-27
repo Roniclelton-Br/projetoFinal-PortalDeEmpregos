@@ -126,5 +126,44 @@ def homepage():
 
 
 
+
+
+@app.route('/delete_vaga/<int:vaga_id>', methods=['POST'])
+def delete_vaga(vaga_id):
+    try:
+        with mysql.connector.connect(
+            host='localhost',
+            user='root',
+            password='mysql',
+            database='portaldeempregos',
+            auth_plugin='mysql_native_password'
+        ) as conexao_bd:
+            with conexao_bd.cursor() as conn:
+                conn.execute("DELETE FROM aplicacao WHERE id_vaga = %s", (vaga_id,))
+                conn.execute("DELETE FROM vagas WHERE id_vaga = %s", (vaga_id,))
+                conexao_bd.commit()
+    except Error as e:
+        logging.error(f'Erro ao deletar vaga: {e}')
+    return redirect(url_for('homepage'))
+
+@app.route('/delete_empresa/<int:empresa_id>', methods=['POST'])
+def delete_empresa(empresa_id):
+    try:
+        with mysql.connector.connect(
+            host='localhost',
+            user='root',
+            password='mysql',
+            database='portaldeempregos',
+            auth_plugin='mysql_native_password'
+        ) as conexao_bd:
+            with conexao_bd.cursor() as conn:
+                conn.execute("DELETE FROM empresa WHERE id_empresa = %s", (empresa_id,))
+                conexao_bd.commit()
+    except Error as e:
+        logging.error(f'Erro ao deletar empresa: {e}')
+    return redirect(url_for('homepage'))
+
+
+
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0', port=5500)
