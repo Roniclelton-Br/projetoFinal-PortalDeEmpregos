@@ -173,7 +173,8 @@ main .conteudo-home p {
 
 main .vagas .conteudo-vagas,
 main .empresas .conteudo-empresas,
-main .candidato .conteudo-candidato  {
+main .candidato .conteudo-candidato,
+main .aplicacao .conteudo-aplicacao  {
     padding: 20px;
     border-radius: 10px;
     height: 100%;
@@ -182,6 +183,7 @@ main .candidato .conteudo-candidato  {
 
 
 .ver {
+    position: relative;
     font-size: 25px;
     list-style: none;
     margin-bottom: 40px;
@@ -195,13 +197,35 @@ main .candidato .conteudo-candidato  {
     white-space: nowrap;
     transition: all ease-in-out 0.5s;
     cursor: pointer;
-    height:52px;
+    text-wrap: wrap;
+}
+.ver div {
+    display: none;
 }
 
 .ver:hover {
     color: var(--orange-color);
     transform: scale(1.02);
-    height: auto;
+}
+
+.ver .forms {
+    display: flex;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.ver .forms button{
+    font-size: 25px;
+    cursor: pointer;
+    padding: 5px 10px;
+    font-weight: bold;
+    border-radius: 5px;
+    border: 1px solid var(--gray-color);
+    transition: all ease-in-out 0.3s;
+}
+.ver .forms button:hover{
+    background-color: var(--orange-color);
+    color: var(--white-color);
 }
 
 .section.active {
