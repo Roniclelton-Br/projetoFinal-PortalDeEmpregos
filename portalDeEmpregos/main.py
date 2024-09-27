@@ -93,7 +93,14 @@ def homepage():
                 resultado_candidato = conn.fetchall()
 
                 for candidato in resultado_candidato:
-                    info_candidato = f'<li class="ver">{candidato[1]}<br>ID: {candidato[0]}<br>CPF: {candidato[2]}<br>TELEFONE: {candidato[3]}<br>ENDEREÇO: {candidato[4]}</li>'
+                    info_candidato = f'''
+                        <li class="ver">
+                            {candidato[1]}
+                            <form action="{ url_for('delete_candidato', candidato_id=candidato[0]) }" method="POST" style="display:inline;">
+                                <button type="submit">Excluir</button>
+                            </form>
+                        </li>
+                    '''
                     candidatos.append(info_candidato)
 
                 # Ver aplicações
@@ -147,6 +154,25 @@ def delete_empresa(empresa_id):
     except Error as e:
         logging.error(f'Erro ao deletar empresa: {e}')
     return redirect(url_for('homepage'))
+
+@app.route('/delete_candidato/<int:candidato_id>', methods=['POST'])
+def delete_candidato(candidato_id):
+    try:
+        with mysql.connector.connect(
+            host='localhost',
+            user='root',
+            password='mysql',
+            database='portaldeempregos',
+            auth_plugin='mysql_native_password'
+        ) as conexao_bd:
+            with conexao_bd.cursor() as conn:
+                conn.execute("DELETE FROM candidato WHERE id_candidato = %s", (candidato_id,))
+                conexao_bd.commit()
+    except Error as e:
+        logging.error(f'Erro ao deletar candidato: {e}')
+    return redirect(url_for('homepage'))
+
+
 
 
 
