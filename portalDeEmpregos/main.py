@@ -117,7 +117,8 @@ def homepage():
 
                 
                 #ver candidatos
-                conn.execute("SELECT * FROM candidato")
+                conn.execute("SELECT * FROM candidato WHERE status_candidato = 'ATIVO'")
+
                 resultado_candidato = conn.fetchall()
                 
 
@@ -236,7 +237,7 @@ def delete_candidato(candidato_id):
             auth_plugin='mysql_native_password'
         ) as conexao_bd:
             with conexao_bd.cursor() as conn:
-                conn.execute("UPDATE vagas SET status_vaga = 'INATIVO' WHERE id_candidato = %s", (candidato_id,))
+                conn.execute("UPDATE aplicacao SET status_aplicacao = 'INATIVO' WHERE id_candidato = %s", (candidato_id,))
                 conn.execute("UPDATE candidato SET status_candidato = 'INATIVO' WHERE id_candidato = %s", (candidato_id,))
                 conexao_bd.commit()
     except Error as e:
@@ -258,7 +259,6 @@ def delete_aplicacao(aplicacao_id):
             auth_plugin='mysql_native_password'
         ) as conexao_bd:
             with conexao_bd.cursor() as conn:
-                conn.execute("UPDATE vagas SET status_vaga = 'INATIVO' WHERE id_aplicacao = %s", (aplicacao_id,))
                 conn.execute("UPDATE aplicacao SET status_aplicacao = 'INATIVO' WHERE id_aplicacao = %s", (aplicacao_id,))
                 conexao_bd.commit()
     except Error as e:
