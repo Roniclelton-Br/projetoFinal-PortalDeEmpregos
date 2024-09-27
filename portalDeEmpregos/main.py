@@ -2,7 +2,7 @@ from flask import Flask, render_template, request, redirect, url_for, session
 import mysql.connector
 from mysql.connector import Error
 import logging
-
+from datetime import datetime
 app = Flask(__name__)
 app.secret_key = 'my_secret_key'
 
@@ -62,11 +62,14 @@ def homepage():
                 contador = 1
 
                 for vaga in resultado_vagas:
+                    conn.execute(f"SELECT nome_empresa FROM empresa WHERE id_empresa = {vaga[1]};")
 
-                    info_vagas = f'''<li class="ver" onclick="mostrarDiv('div_id{contador}')">{vaga[2]}<div id = "div_id{contador}"><ul><li><br>ID: {vaga[0]}<br>CNPJ: {vaga[2]}<br>EMPRESA: {vaga[1]}<br>FUNÇÃO: {vaga[3]}<br>SALÁRIO: R${vaga[4]:.2F}</li></ul></div></li>'''  # Ajuste o índice conforme necessário
+                    nome_empresa = conn.fetchone()
+
+                    info_vagas = f'''<li class="ver" onclick="mostrarDiv('div_id{contador}')">{vaga[2]}<div id = "div_id{contador}"><ul><li><br>ID: {vaga[0]}<br>VAGA: {vaga[2]}<br>EMPRESA: {nome_empresa[0]}<br>FUNÇÃO: {vaga[3]}<br>SALÁRIO: R$ {vaga[4]:.2F}</li></ul></div></li>'''  # Ajuste o índice conforme necessário
                     vagas.append(info_vagas)
                     contador += 1
-              
+
                 #ver empresas
                 conn.execute("SELECT * FROM empresa")
                 resultado_empresas = conn.fetchall()
@@ -96,8 +99,16 @@ def homepage():
                 resultado_aplicacao = conn.fetchall()
 
                 for aplicacao in resultado_aplicacao:
-                    info_aplicacao = f'<li class="ver">ID: {aplicacao} </li>'  # Ajuste o índice conforme necessário
+                    conn.execute(f"SELECT nome_vaga FROM portaldeempregos.vagas WHERE id_vaga = {aplicacao[2]};")
+                    nome_vaga = conn.fetchone()
+
+                    conn.execute(f"SELECT nome_candidato FROM portaldeempregos.candidato WHERE id_candidato = {aplicacao[1]}")
+                    nome_candidato = conn.fetchone()
+
+
+                    info_aplicacao = f'''<li class="ver" onclick="mostrarDiv('div_id{contador}')">VAGA: {nome_vaga[0]}: CANDIDATO: {nome_candidato[0]}<div id = "div_id{contador}"><ul><li><br>ID: {aplicacao[0]}<br>ID CANDIDATO: {aplicacao[1]}<br>ID VAGA: {aplicacao[2]}<br>DATA APLICAÇÃO: {aplicacao[3]}<br>STATUS: {aplicacao[4]}</li></ul></div> </li>'''  # Ajuste o índice conforme necessário
                     aplicacoes.append(info_aplicacao)
+                    contador += 1
 
 
     

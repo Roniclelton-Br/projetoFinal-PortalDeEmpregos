@@ -173,7 +173,8 @@ main .conteudo-home p {
 
 main .vagas .conteudo-vagas,
 main .empresas .conteudo-empresas,
-main .candidato .conteudo-candidato  {
+main .candidato .conteudo-candidato,
+main .aplicacao .conteudo-aplicacao  {
     padding: 20px;
     border-radius: 10px;
     height: 100%;
