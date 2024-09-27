@@ -173,7 +173,16 @@
         <section class="candidato section" id="excluirCandidato">
             <div class="conteudo-candidato container">
                 <div class="excluir-candidato">
-                    <h1>Excluir candidato</h1>
+                    <h1>
+                        <ul>
+                            <ul>
+                                {% for vaga in vagas_ver %}
+                                    {{ vaga | safe}}
+                                {% else %}
+                                    <li>Nenhuma vaga disponível.</li>
+                                {% endfor %}
+                            </ul>
+                    </h1>
                 </div>
             </div>
         </section>

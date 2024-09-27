@@ -61,50 +61,94 @@ def homepage():
                 resultado_vagas = conn.fetchall()
 
                 for vaga in resultado_vagas:
-                    info_vagas = f'<li class="ver">{vaga[2]}</li>'  # Ajuste o índice conforme necessário
+                    info_vagas = f'''
+                        <li class="ver">
+                            {vaga[2]}
+                            <form action="{ url_for('delete_vaga', vaga_id=vaga[0]) }" method="POST" style="display:inline;">
+                                <button type="submit">Excluir</button>
+                            </form>
+                        </li>
+                    '''  # Ajuste o índice conforme necessário
                     vagas.append(info_vagas)
-              
-                #ver empresas
+
+                # Ver empresas
                 conn.execute("SELECT * FROM empresa")
                 resultado_empresas = conn.fetchall()
 
                 for empresa in resultado_empresas:
-                    info_empresas = f'<li class="ver">{empresa[1]}</li>'  # Ajuste o índice conforme necessário
+                    info_empresas = f'''
+                        <li class="ver">
+                            {empresa[1]}
+                            <form action="{ url_for('delete_empresa', empresa_id=empresa[0]) }" method="POST" style="display:inline;">
+                                <button type="submit">Excluir</button>
+                            </form>
+                        </li>
+                    '''  # Ajuste o índice conforme necessário
+                    
+                    
                     empresas.append(info_empresas)
 
-
-                
-                #ver candidatos
+                # Ver candidatos
                 conn.execute("SELECT * FROM candidato")
                 resultado_candidato = conn.fetchall()
 
                 for candidato in resultado_candidato:
-                    info_candidato = f'<li class="ver">{candidato[1]}<br><br>ID: {candidato[0]}<br>CPF: {candidato[2]}<br>TELEFONE: {candidato[3]}<br>ENDEREÇO: {candidato[4]}</li>'  # Ajuste o índice conforme necessário
+                    info_candidato = f'<li class="ver">{candidato[1]}<br>ID: {candidato[0]}<br>CPF: {candidato[2]}<br>TELEFONE: {candidato[3]}<br>ENDEREÇO: {candidato[4]}</li>'
                     candidatos.append(info_candidato)
 
-
-
-                #ver aplicações
+                # Ver aplicações
                 conn.execute("SELECT * FROM aplicacao")
                 resultado_aplicacao = conn.fetchall()
 
                 for aplicacao in resultado_aplicacao:
-                    info_aplicacao = f'<li class="ver">ID: {aplicacao[0]} </li>'  # Ajuste o índice conforme necessário
+                    info_aplicacao = f'<li class="ver">ID: {aplicacao[0]} </li>'
                     aplicacoes.append(info_aplicacao)
 
-
-    
     except Error as erro:
-        logging.error(f'Erro ao buscar vagas: {erro}')
+        logging.error(f'Erro ao buscar dados: {erro}')
         vagas = ['Erro ao buscar vagas.']
         empresas = ['Erro ao buscar empresas.']
-        candidato = ['Erro ao buscar candidatos.']
+        candidatos = ['Erro ao buscar candidatos.']
         aplicacoes = ['Erro ao buscar aplicações.']
 
+    return render_template('index.html', username=session.get('username'), vagas_ver=vagas, empresas_ver=empresas, candidato_ver=candidatos, aplicacao_ver=aplicacoes)
+
+@app.route('/delete_vaga/<int:vaga_id>', methods=['POST'])
+def delete_vaga(vaga_id):
+    try:
+        with mysql.connector.connect(
+            host='localhost',
+            user='root',
+            password='mysql',
+            database='portaldeempregos',
+            auth_plugin='mysql_native_password'
+        ) as conexao_bd:
+            with conexao_bd.cursor() as conn:
+                conn.execute("DELETE FROM aplicacao WHERE id_vaga = %s", (vaga_id,))
+                conn.execute("DELETE FROM vagas WHERE id_vaga = %s", (vaga_id,))
+                conexao_bd.commit()
+    except Error as e:
+        logging.error(f'Erro ao deletar vaga: {e}')
+    return redirect(url_for('homepage'))
+
+@app.route('/delete_empresa/<int:empresa_id>', methods=['POST'])
+def delete_empresa(empresa_id):
+    try:
+        with mysql.connector.connect(
+            host='localhost',
+            user='root',
+            password='mysql',
+            database='portaldeempregos',
+            auth_plugin='mysql_native_password'
+        ) as conexao_bd:
+            with conexao_bd.cursor() as conn:
+                conn.execute("DELETE FROM empresa WHERE id_empresa = %s", (empresa_id,))
+                conexao_bd.commit()
+    except Error as e:
+        logging.error(f'Erro ao deletar empresa: {e}')
+    return redirect(url_for('homepage'))
 
 
-    
-    return render_template('index.html', username=session.get('username'), vagas_ver=vagas,  empresas_ver=empresas,  candidato_ver=candidatos, aplicacao_ver=aplicacoes)
 
 
 
