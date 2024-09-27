@@ -13,7 +13,8 @@ nome_empresa VARCHAR(255) NOT NULL,
 cnpj_empresa CHAR(14) NOT NULL UNIQUE,
 localizacao_empresa VARCHAR(255),
 porte_empresa VARCHAR(45),
-descricao_empresa VARCHAR(255)              
+descricao_empresa VARCHAR(255),
+status_empresa VARCHAR(255) default 'ATIVO'              
 );
 ''')
 
@@ -25,7 +26,8 @@ nome_candidato VARCHAR(255) NOT NULL,
 cpf_candidato CHAR(11) NOT NULL UNIQUE,
 telefone_candidato VARCHAR(14) DEFAULT '00000000000',
 endereco_candidato VARCHAR(255) DEFAULT 'SEM ENDEREÇO',
-email_candidato VARCHAR(255) DEFAULT 'SEM E-MAIL'
+email_candidato VARCHAR(255) DEFAULT 'SEM E-MAIL',
+status_candidato VARCHAR(255) default 'ATIVO' 
 );
 ''')
 
@@ -38,6 +40,7 @@ id_empresa INT NOT NULL,
 nome_vaga VARCHAR(255) NOT NULL,
 funcao_vaga VARCHAR(255),
 salario_vaga DECIMAL(7,2),
+status_vaga VARCHAR(255) default 'ATIVO',
 CONSTRAINT fk_empresa FOREIGN KEY(id_empresa) REFERENCES empresa (id_empresa)
 );
 ''')
@@ -50,7 +53,7 @@ id_aplicacao INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
 id_candidato INT NOT NULL,
 id_vaga INT NOT NULL,
 data_aplicacao DATETIME DEFAULT CURRENT_TIMESTAMP,
-status_aplicacao VARCHAR(255) default 'AGUARDANDO RESULTADO',
+status_aplicacao VARCHAR(255) default 'ATIVO',
 CONSTRAINT fk_vaga FOREIGN KEY (id_vaga) REFERENCES vagas(id_vaga),
 CONSTRAINT fk_candidato FOREIGN KEY (id_candidato) REFERENCES candidato(id_candidato)
 );

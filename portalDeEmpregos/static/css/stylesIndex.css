@@ -207,9 +207,26 @@ main .aplicacao .conteudo-aplicacao  {
     color: var(--orange-color);
     transform: scale(1.02);
 }
-/* .ver:hover div {
-    display: block;
-} */
+
+.ver .forms {
+    display: flex;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.ver .forms button{
+    font-size: 25px;
+    cursor: pointer;
+    padding: 5px 10px;
+    font-weight: bold;
+    border-radius: 5px;
+    border: 1px solid var(--gray-color);
+    transition: all ease-in-out 0.3s;
+}
+.ver .forms button:hover{
+    background-color: var(--orange-color);
+    color: var(--white-color);
+}
 
 .section.active {
     display: flex;

@@ -57,7 +57,8 @@ def homepage():
         ) as conexao_bd:
             with conexao_bd.cursor() as conn:
                 # Ver vagas
-                conn.execute("SELECT * FROM vagas")
+                conn.execute("SELECT * FROM vagas WHERE  status_vaga = 'ATIVO'")
+
                 resultado_vagas = conn.fetchall()
                 contador = 1
 
@@ -66,17 +67,50 @@ def homepage():
 
                     nome_empresa = conn.fetchone()
 
-                    info_vagas = f'''<li class="ver" onclick="mostrarDiv('div_id{contador}')">{vaga[2]}<div id = "div_id{contador}"><ul><li><br>ID: {vaga[0]}<br>VAGA: {vaga[2]}<br>EMPRESA: {nome_empresa[0]}<br>FUNÇÃO: {vaga[3]}<br>SALÁRIO: R$ {vaga[4]:.2F}</li></ul></div></li>'''  # Ajuste o índice conforme necessário
+                    info_vagas = f'''<li class="ver" onclick="mostrarDiv('div_id{contador}')">
+                    {vaga[2]}
+                    <div id = "div_id{contador}">
+                    <ul>
+                    <li><br>ID: {vaga[0]}<br>VAGA: {vaga[2]}<br>EMPRESA: {nome_empresa[0]}<br>FUNÇÃO: {vaga[3]}<br>SALÁRIO: R$ {vaga[4]:.2F}<br>STATUS: {vaga[5]}
+                    </li>
+                    <ul class="forms">
+                    <li>
+                    <form action="{ url_for('delete_vaga', vaga_id = vaga[0]) }" method="POST" style="display:inline;">
+                    <button type="submit">Editar</button>
+                    </form>
+                    </li>
+                    <li>
+                    <form action="{ url_for('delete_vaga', vaga_id = vaga[0]) }" method="POST" style="display:inline;">
+                    <button type="submit">Excluir</button>
+                    </form>
+                    </li>
+                    </ul>
+                    </ul>
+                    </div>
+                    </li>'''
                     vagas.append(info_vagas)
                     contador += 1
 
                 #ver empresas
-                conn.execute("SELECT * FROM empresa")
+                conn.execute("SELECT * FROM empresa  WHERE status_empresa = 'ATIVO'")
+
                 resultado_empresas = conn.fetchall()
                 
 
                 for empresa in resultado_empresas:
-                    info_empresas = f'''<li class="ver" onclick="mostrarDiv('div_id{contador}')">{empresa[1]}<div id = "div_id{contador}"><ul><li><br>ID: {empresa[0]}<br>CNPJ: {empresa[2]}<br>LOCALIZAÇÃO: {empresa[3]}<br>PORTE: {empresa[4]}<br>DESCRIÇÃO: {empresa[5]}</li></ul></div></li>'''  # Ajuste o índice conforme necessário
+                    info_empresas = f'''<li class="ver" onclick="mostrarDiv('div_id{contador}')">{empresa[1]}<div id = "div_id{contador}"><ul><li><br>ID: {empresa[0]}<br>CNPJ: {empresa[2]}<br>LOCALIZAÇÃO: {empresa[3]}<br>PORTE: {empresa[4]}<br>DESCRIÇÃO: {empresa[5]}<br>STATUS: {empresa[6]}</li></ul>
+                    <ul class="forms">
+                    <li>
+                    <form action="{ url_for('delete_vaga', vaga_id = vaga[0]) }" method="POST" style="display:inline;">
+                    <button type="submit">Editar</button>
+                    </form>
+                    </li>
+                    <li>
+                    <form action="{ url_for('delete_empresa', empresa_id = empresa[0]) }" method="POST" style="display:inline;">
+                    <button type="submit">Excluir</button>
+                    </form>
+                    </li>
+                    </ul></div></li>'''  # Ajuste o índice conforme necessário
                     empresas.append(info_empresas)
                     contador += 1
 
@@ -88,14 +122,26 @@ def homepage():
                 
 
                 for candidato in resultado_candidato:
-                    info_candidato = f'''<li class="ver" onclick="mostrarDiv('div_id{contador}')">{candidato[1]}<div id = "div_id{contador}"><ul><li><br>ID: {candidato[0]}<br>CPF: {candidato[2]}<br>TELEFONE: {candidato[3]}<br>ENDEREÇO: {candidato[4]}</li></ul></div></li>'''  # Ajuste o índice conforme necessário
+                    info_candidato = f'''<li class="ver" onclick="mostrarDiv('div_id{contador}')">{candidato[1]}<div id = "div_id{contador}"><ul><li><br>ID: {candidato[0]}<br>CPF: {candidato[2]}<br>TELEFONE: {candidato[3]}<br>ENDEREÇO: {candidato[4]}<br>E-MAIL: {candidato[5]}<br>STATUS: {candidato[6]}</li></ul>
+                    <ul class="forms">
+                    <li>
+                    <form action="{ url_for('delete_candidato', candidato_id = candidato[0]) }" method="POST" style="display:inline;">
+                    <button type="submit">Editar</button>
+                    </form>
+                    </li>
+                    <li>
+                    <form action="{ url_for('delete_candidato', candidato_id = candidato[0]) }" method="POST" style="display:inline;">
+                    <button type="submit">Excluir</button>
+                    </form>
+                    </li>
+                    </ul></div></li>'''  # Ajuste o índice conforme necessário
                     candidatos.append(info_candidato)
                     contador += 1
 
 
 
                 #ver aplicações
-                conn.execute("SELECT * FROM aplicacao")
+                conn.execute("SELECT * FROM aplicacao WHERE status_aplicacao = 'ATIVO'")
                 resultado_aplicacao = conn.fetchall()
 
                 for aplicacao in resultado_aplicacao:
@@ -106,7 +152,19 @@ def homepage():
                     nome_candidato = conn.fetchone()
 
 
-                    info_aplicacao = f'''<li class="ver" onclick="mostrarDiv('div_id{contador}')">VAGA: {nome_vaga[0]}: CANDIDATO: {nome_candidato[0]}<div id = "div_id{contador}"><ul><li><br>ID: {aplicacao[0]}<br>ID CANDIDATO: {aplicacao[1]}<br>ID VAGA: {aplicacao[2]}<br>DATA APLICAÇÃO: {aplicacao[3]}<br>STATUS: {aplicacao[4]}</li></ul></div> </li>'''  # Ajuste o índice conforme necessário
+                    info_aplicacao = f'''<li class="ver" onclick="mostrarDiv('div_id{contador}')">VAGA: {nome_vaga[0]}: CANDIDATO: {nome_candidato[0]}<div id = "div_id{contador}"><ul><li><br>ID: {aplicacao[0]}<br>ID CANDIDATO: {aplicacao[1]}<br>ID VAGA: {aplicacao[2]}<br>DATA APLICAÇÃO: {aplicacao[3]}<br>STATUS: {aplicacao[4]}</li></ul>
+                    <ul class="forms">
+                    <li>
+                    <form action="{ url_for('delete_aplicacao', aplicacao_id = aplicacao[0]) }" method="POST" style="display:inline;">
+                    <button type="submit">Editar</button>
+                    </form>
+                    </li>
+                    <li>
+                    <form action="{ url_for('delete_aplicacao', aplicacao_id = aplicacao[0]) }" method="POST" style="display:inline;">
+                    <button type="submit">Excluir</button>
+                    </form>
+                    </li>
+                    </ul></div> </li>'''  # Ajuste o índice conforme necessário
                     aplicacoes.append(info_aplicacao)
                     contador += 1
 
@@ -139,8 +197,8 @@ def delete_vaga(vaga_id):
             auth_plugin='mysql_native_password'
         ) as conexao_bd:
             with conexao_bd.cursor() as conn:
-                conn.execute("DELETE FROM aplicacao WHERE id_vaga = %s", (vaga_id,))
-                conn.execute("DELETE FROM vagas WHERE id_vaga = %s", (vaga_id,))
+                conn.execute("UPDATE aplicacao SET status_aplicacao = 'INATIVO' WHERE id_vaga = %s", (vaga_id,))
+                conn.execute("UPDATE vagas SET status_vaga = 'INATIVO' WHERE id_vaga = %s", (vaga_id,))
                 conexao_bd.commit()
     except Error as e:
         logging.error(f'Erro ao deletar vaga: {e}')
@@ -157,10 +215,54 @@ def delete_empresa(empresa_id):
             auth_plugin='mysql_native_password'
         ) as conexao_bd:
             with conexao_bd.cursor() as conn:
-                conn.execute("DELETE FROM empresa WHERE id_empresa = %s", (empresa_id,))
+                conn.execute("UPDATE vagas SET status_vaga = 'INATIVO' WHERE id_empresa = %s", (empresa_id,))
+                conn.execute("UPDATE empresa SET status_empresa = 'INATIVO' WHERE id_empresa = %s", (empresa_id,))
                 conexao_bd.commit()
     except Error as e:
         logging.error(f'Erro ao deletar empresa: {e}')
+    return redirect(url_for('homepage'))
+
+
+
+
+@app.route('/delete_candidato/<int:candidato_id>', methods=['POST'])
+def delete_candidato(candidato_id):
+    try:
+        with mysql.connector.connect(
+            host='localhost',
+            user='root',
+            password='mysql',
+            database='portaldeempregos',
+            auth_plugin='mysql_native_password'
+        ) as conexao_bd:
+            with conexao_bd.cursor() as conn:
+                conn.execute("UPDATE vagas SET status_vaga = 'INATIVO' WHERE id_candidato = %s", (candidato_id,))
+                conn.execute("UPDATE candidato SET status_candidato = 'INATIVO' WHERE id_candidato = %s", (candidato_id,))
+                conexao_bd.commit()
+    except Error as e:
+        logging.error(f'Erro ao deletar candidato: {e}')
+    return redirect(url_for('homepage'))
+
+
+
+
+
+@app.route('/delete_aplicacao/<int:aplicacao_id>', methods=['POST'])
+def delete_aplicacao(aplicacao_id):
+    try:
+        with mysql.connector.connect(
+            host='localhost',
+            user='root',
+            password='mysql',
+            database='portaldeempregos',
+            auth_plugin='mysql_native_password'
+        ) as conexao_bd:
+            with conexao_bd.cursor() as conn:
+                conn.execute("UPDATE vagas SET status_vaga = 'INATIVO' WHERE id_aplicacao = %s", (aplicacao_id,))
+                conn.execute("UPDATE aplicacao SET status_aplicacao = 'INATIVO' WHERE id_aplicacao = %s", (aplicacao_id,))
+                conexao_bd.commit()
+    except Error as e:
+        logging.error(f'Erro ao deletar aplicacao: {e}')
     return redirect(url_for('homepage'))
 
 

@@ -14,9 +14,9 @@ function mostrarDiv(div_id) {
     const div = document.getElementById(div_id);
 
     if (div.style.display === 'none' || div.style.display === '') {
-        div.style.display = 'block'; // Torna a div visível
+        div.style.display = 'block'; 
     } else {
-        div.style.display = 'none'; // Torna a div invisível
+        div.style.display = 'none';
     }
 
 }
