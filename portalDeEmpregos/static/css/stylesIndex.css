@@ -181,6 +181,22 @@ main .aplicacao .conteudo-aplicacao  {
     overflow-y: auto;
 }
 
+.btn-adicionar {
+    background-color: var(--back-color);
+    color: var(--black-color);
+    border: 1px solid var(--gray-color);
+    border-radius: 5px;
+    padding: 5px 10px;
+    font-size: 25px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-bottom: 40px;
+    transition: all ease-in-out 0.3s;
+}
+.btn-adicionar:hover {
+    background-color: var(--orange-color);
+    color: var(--white-color);
+}
 
 .ver {
     position: relative;
@@ -236,6 +252,65 @@ main .aplicacao .conteudo-aplicacao  {
     background-color: var(--back-color);
     color: var(--orange-color);
 }
+
+
+
+.candidato .cadastrar-candidato,
+.empresas .cadastrar-empresas,
+.vagas .cadastrar-vagas {
+    width: 70%;
+    height: auto;
+    margin: auto;
+}
+
+.candidato .cadastrar-candidato h1,
+.empresas .cadastrar-empresas h1,
+.vagas .cadastrar-vagas h1{
+    color: #333;
+    font-size: 3rem;
+}
+
+.candidato .cadastrar-candidato form,
+.empresas .cadastrar-empresas form ,
+.vagas .cadastrar-vagas form{
+    margin-top: 20px;
+
+}
+
+.candidato .cadastrar-candidato p,
+.empresas .cadastrar-empresas p,
+.vagas .cadastrar-vagas p {
+    margin-bottom: 10px;
+    font-size: 1.6rem;
+}
+
+.candidato .cadastrar-candidato p label,
+.empresas .cadastrar-empresas p label ,
+.vagas .cadastrar-vagas p label{
+    font-weight: bold;
+    font-size: 1.8rem;
+}
+
+.candidato .cadastrar-candidato input[type="text"],
+.candidato .cadastrar-candidato input[type="email"],
+.empresas .cadastrar-empresas input[type="text"],
+.empresas .cadastrar-empresas input[type="email"],
+.vagas .cadastrar-vagas input[type="text"],
+.vagas .cadastrar-vagas input[type="email"],
+.vagas .cadastrar-vagas input[type="number"] {
+    width: 100%;
+    padding: 8px;
+    margin-top: 10px;
+}
+
+.candidato .cadastrar-candidato button,
+.empresas .cadastrar-empresas button ,
+.vagas .cadastrar-vagas button{
+    margin-top: 10px;
+}
+
+
+
 
 footer {
     height: 30px;

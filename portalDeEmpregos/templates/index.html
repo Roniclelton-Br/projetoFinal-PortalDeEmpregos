@@ -47,6 +47,7 @@
         <section class="vagas section" id="vagas">
             <div class="conteudo-vagas container">
                 <div class="ver-vagas">
+                    <button class="btn-adicionar" onclick="mostrarSection('cadastrarVaga')"><i class="bi bi-database-add"></i> ADICIONAR VAGA</button>
                     <h1>
                         <ul>
                             {% for vaga in vagas_ver %}
@@ -61,7 +62,28 @@
         <section class="vagas section" id="cadastrarVaga">
             <div class="conteudo-vagas container">
                 <div class="cadastrar-vagas">
-                    <h1>Cadastrar Vaga</h1>
+                    <h1>Adicionar Vaga</h1>
+                    <form method="POST" action="{{ url_for('add_vaga') }}">
+                        <p>
+                            <label for="id_empresa">ID da Empresa:</label><br>
+                            <input type="number" id="id_empresa" name="id_empresa" required>
+                        </p>
+                        <p>
+                            <label for="nome_vaga">Nome da Vaga:</label><br>
+                            <input type="text" id="nome_vaga" name="nome_vaga" required>
+                        </p>
+                        <p>
+                            <label for="funcao_vaga">Função:</label><br>
+                            <input type="text" id="funcao_vaga" name="funcao_vaga">
+                        </p>
+                        <p>
+                            <label for="salario_vaga">Salário:</label><br>
+                            <input type="text" id="salario_vaga" name="salario_vaga" placeholder="3500">
+                        </p>
+                        <p>
+                            <button type="submit" class="btn-adicionar">Adicionar</button>
+                        </p>
+                    </form>
                 </div>
             </div>
         </section>
@@ -74,17 +96,11 @@
             </div>
         </section>
 
-        <section class="vagas section" id="excluirVaga">
-            <div class="conteudo-vagas container">
-                <div class="excluir-vaga">
-                    <h1>Excluir Vaga</h1>
-                </div>
-            </div>
-        </section>
 
         <section class="empresas section" id="empresas">
             <div class="conteudo-empresas container">
                 <div class="ver-empresas">
+                    <button class="btn-adicionar" onclick="mostrarSection('cadastrarEmpresa')"><i class="bi bi-database-add"></i> ADICIONAR EMPRESA</button>
                     <h1>
                         <ul>
                             {% for empresas in empresas_ver %}
@@ -99,7 +115,32 @@
         <section class="empresas section" id="cadastrarEmpresa">
             <div class="conteudo-empresas container">
                 <div class="cadastrar-empresas">
-                    <h1>Cadastrar Empresas</h1>
+                    <h1>Adicionar Empresa</h1>
+                    <form method="POST" action="{{ url_for('add_empresa') }}">
+                        <p>
+                            <label for="nome_empresa">Nome da Empresa:</label><br>
+                            <input type="text" id="nome_empresa" name="nome_empresa" required>
+                        </p>
+                        <p>
+                            <label for="cnpj_empresa">CNPJ:</label><br>
+                            <input type="text" id="cnpj_empresa" name="cnpj_empresa" required minlength="14" maxlength="14">
+                        </p>
+                        <p>
+                            <label for="localizacao_empresa">Localização:</label><br>
+                            <input type="text" id="localizacao_empresa" name="localizacao_empresa">
+                        </p>
+                        <p>
+                            <label for="porte_empresa">Porte da Empresa:</label><br>
+                            <input type="text" id="porte_empresa" name="porte_empresa">
+                        </p>
+                        <p>
+                            <label for="descricao_empresa">Descrição:</label><br>
+                            <input type="text" id="descricao_empresa" name="descricao_empresa">
+                        </p>
+                        <p>
+                            <button type="submit" class="btn-adicionar">Adicionar</button>
+                        </p>
+                    </form>
                 </div>
             </div>
         </section>
@@ -112,17 +153,11 @@
             </div>
         </section>
 
-        <section class="empresas section" id="excluirEmpresa">
-            <div class="conteudo-empresas container">
-                <div class="excluir-empresas">
-                    <h1>Excluir Empresas</h1>
-                </div>
-            </div>
-        </section>
 
         <section class="candidato section" id="candidato">
             <div class="conteudo-candidato container">
                 <div class="ver-candidato">
+                    <button class="btn-adicionar" onclick="mostrarSection('cadastrarCandidato')"><i class="bi bi-database-add"></i> ADICIONAR CANDIDATO</button>
                     <h1>
                         <ul>
                             {% for candidato in candidato_ver %}
@@ -137,7 +172,43 @@
         <section class="candidato section" id="cadastrarCandidato">
             <div class="conteudo-candidato container">
                 <div class="cadastrar-candidato">
-                    <h1>Cadastrar candidato</h1>
+                    <h1>Adicionar Candidato</h1>
+    
+                    <form method="POST" action="{{ url_for('add_candidato') }}">
+                        <p>
+                            <label for="nome_candidato">Nome:</label><br>
+                            <input type="text" id="nome_candidato" name="nome_candidato" required>
+                        </p>
+                        <p>
+                            <label for="cpf_candidato">CPF:</label><br>
+                            <input type="text" id="cpf_candidato" name="cpf_candidato" required minlength="11" maxlength="11">
+                        </p>
+                        <p>
+                            <label for="telefone_candidato">Telefone:</label><br>
+                            <input type="text" id="telefone_candidato" name="telefone_candidato" value="00000000000">
+                        </p>
+                        <p>
+                            <label for="endereco_candidato">Endereço:</label><br>
+                            <input type="text" id="endereco_candidato" name="endereco_candidato" value="SEM ENDEREÇO">
+                        </p>
+                        <p>
+                            <label for="email_candidato">E-mail:</label><br>
+                            <input type="email" id="email_candidato" name="email_candidato" value="SEM E-MAIL">
+                        </p>
+                        <p>
+                            <button class="btn-adicionar" type="submit">Adicionar</button>
+                        </p>
+                    </form>
+
+                    {% with messages = get_flashed_messages(with_categories=true) %}
+                        {% if messages %}
+                            <ul>
+                            {% for category, message in messages %}
+                                <li class="{{ category }}">{{ message }}</li>
+                            {% endfor %}
+                            </ul>
+                        {% endif %}
+                    {% endwith %}
                 </div>
             </div>
         </section>
@@ -150,13 +221,6 @@
             </div>
         </section>
 
-        <section class="candidato section" id="excluirCandidato">
-            <div class="conteudo-candidato container">
-                <div class="excluir-candidato">
-                    <h1>Excluir candidato</h1>
-                </div>
-            </div>
-        </section>
 
         <section class="aplicacao section" id="aplicacao">
             <div class="conteudo-aplicacao container">
