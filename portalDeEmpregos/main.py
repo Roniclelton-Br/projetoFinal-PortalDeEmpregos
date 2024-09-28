@@ -83,6 +83,9 @@ def homepage():
                     <button type="submit">Excluir</button>
                     </form>
                     </li>
+                    <form style="display:inline;">
+                    <button type="submit">Aplicar para a vaga</button>
+                    </form>
                     </ul>
                     </ul>
                     </div>
