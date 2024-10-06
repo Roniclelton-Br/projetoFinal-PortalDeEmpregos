@@ -1,0 +1,88 @@
+:root {
+    --main-color: #333;
+    --font-size: 28px;
+    --spc-left: 1%;
+    --xtrm-left: 175%;
+    --main-font-size: 12px;
+    --orange-red: #f22a13;
+    --orange-gray-dark: #171110;
+}
+
+/* Media Queries */
+@media screen and (min-width: 1024px) {
+    :root {
+        --font-size: 28px; /* Mantém tamanho maior para desktops */
+        --xtrm-left: 175%; /* Pode ajustar este valor conforme necessário */
+    }
+}
+
+@media screen and (min-width: 600px) and (max-width: 1024px) {
+    :root {
+        --font-size: 16px; /* Ajuste se necessário */
+        --xtrm-left: 150%; /* Ajuste este valor se precisar */
+    }
+}
+
+@media screen and (max-width: 600px) {
+    :root {
+        --font-size: 12px;
+        --spc-left: 2%;
+        --xtrm-left: 10%;
+        --main-font-size: 10px;
+        --max-width: 99%
+    }
+}
+
+/* Estilos Gerais */
+body {
+    background-color: whitesmoke;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+header {
+    background-color: var(--orange-gray-dark);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    position: absolute;
+    min-width: 95%;
+    border-radius: 4px;
+}
+
+ul {
+    list-style: none;
+    position: relative;
+    left: var(--xtrm-left);
+}
+
+li {
+    display: inline;
+}
+
+a {
+    padding: 5px;
+    font-size: var(--main-font-size);
+    color: var(--orange-red);
+}
+
+a:hover {
+    color: white;
+}
+
+.logo {
+    position: relative;
+    left: var(--spc-left);
+    display: flex;
+    flex-direction: row;
+    font-size: var(--font-size);
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+.portal_de {
+    color: var(--orange-red);
+}
+
+.vagas {
+    color: whitesmoke;
+    margin-left: 5px;
+}

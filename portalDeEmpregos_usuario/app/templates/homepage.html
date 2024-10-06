@@ -4,12 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portal de vagas</title>
+    <link rel="stylesheet" href="{{ url_for( 'static', filename='css/homepage.css' ) }}">
+
 </head>
 <body>
     <header>
-
+        <div class="logo">
+            <p class="portal_de">Portal de</p><p class="vagas"> vagas</p>
+        </div>
         <nav>
-
+            <ul>
+                <li><a href="login">Log in</a></li>
+                <li><a href="sigin">Sig in</a></li>
+                <li><a href="contatos">Contatos</a></li>
+                <li><a href="equipe_desenvolvimento">Sobre a gente</a></li>
+            </ul>
         </nav>
 
     </header>
@@ -17,7 +26,7 @@
 
     </main>
     <footer>
-        
+
     </footer>
 </body>
 </html>
