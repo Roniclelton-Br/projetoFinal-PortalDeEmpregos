@@ -8,15 +8,21 @@
     --orange-gray-dark: #171110;
     --max-width: 90%;
     --min-width: 90%;
-    --font-size-titulo: 16px;
-    --font-size-corpo: 10px;
+    --font-size-titulo: 24px;
+    --font-size-corpo: 15px;
+    --font-size-corpo-dois: 14px;
+    --color-body: linear-gradient(125deg, rgb(116, 32, 32) 0%, #3f1d1d 10%, black 40%, var(--orange-red) 100%);
+    --left-button: 0%;
+    --top-button: 10%;
+    --width-button: 16vh;
+    --height-button: 15vh;
 }
 
 /* Media Queries */
 @media screen and (min-width: 1024px) {
     :root {
         --font-size: 28px; 
-        --xtrm-left: 175%; 
+        --xtrm-left: 350%; 
     }
 }
 
@@ -29,60 +35,44 @@
 
 @media screen and (max-width: 600px) {
     :root {
-        --font-size: 10px;
+        --font-size: 18px;
         --logo-left-space: 2%; 
-        --xtrm-left: 20%; 
+        --xtrm-left: 18%; 
         --main-font-size: 10px;
         --max-width: 99%;
         --min-width: 99%;
+        --top-button: 25%;
+        --left-button: 0%;
+        --width-button: 20vw;
+        --height-button: 9.3vh;
+        --font-size-corpo-dois: 10px;
+        --color-body: linear-gradient(125deg, rgb(116, 32, 32) 0%, #3f1d1d 10%, black 40%, var(--orange-red) 100%);
     }
 }
 
 /* Estilos Gerais */
 body {
-    background-color: whitesmoke;
+    background: var(--color-body);
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     display: flex;
     flex-direction: column;
     width: 100%;
-    margin: 0; /* Remove margens padrão */
-    padding: 0; /* Remove preenchimentos padrão */
+    margin: 0;
+    padding: 0;
+    position: relative; /* Para posicionar o rastro */
+    overflow: hidden; /* Para esconder o rastro que sai da tela */
 }
 
 header {
     background-color: var(--orange-gray-dark);
     display: flex;
     align-items: center;
-    width: 100%; /* Garante que o header ocupe 100% da largura */
+    width: 100%;
     border-radius: 4px;
+    height: 10vh;
 }
 
-ul {
-    list-style: none;
-    position: relative;
-    left: var(--xtrm-left);
-    margin: 0; /* Remove margens padrão */
-    padding: 0; /* Remove preenchimentos padrão */
-}
 
-li {
-    display: inline;
-}
-
-a {
-    padding: 5px;
-    font-size: var(--main-font-size);
-    color: var(--orange-red);
-    text-decoration: none; /* Remove sublinhado por padrão */
-}
-
-a:hover {
-    color: white;
-}
-
-main {
-    color: black;
-}
 
 .logo {
     position: relative;
@@ -90,7 +80,6 @@ main {
     display: flex;
     flex-direction: row;
     font-size: var(--font-size);
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
 
 .portal_de {
@@ -101,9 +90,116 @@ main {
     color: whitesmoke;
     margin-left: 5px;
 }
-.titulo{
-    font-size: var(--font-size-titulo)
+
+nav ul {
+    list-style: none;
+    position: relative;
+    left: var(--xtrm-left);
+    margin: 0;
+    padding: 0;
 }
-.corpo{
-    font-size: var(--font-size-corpo)
+
+li {
+    display: inline;
+}
+
+a {
+    padding: 5px;
+    font-size: var(--main-font-size);
+    color: var(--orange-red);
+    text-decoration: none;
+}
+
+a:hover {
+    color: white;
+}
+
+main {
+    color: black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 10%;
+}
+
+/* Estilos das apresentações */
+.apresentacao_um,
+.apresentacao_dois,
+.apresentacao_tres,
+.apresentacao_quatro {
+    position: relative;
+    padding: 2em;
+    margin: 0;
+    margin-top: 10%;
+    background: white;
+    z-index: 100;
+    width: 60%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px var(--orange-red), 
+                inset 0 0 0 2px transparent;
+    transition: transform 0.3s;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    text-align: center;
+}
+
+.apresentacao_um:hover,
+.apresentacao_dois:hover,
+.apresentacao_tres:hover,
+.apresentacao_quatro:hover {
+    transform: scale(1.05);
+}
+
+/* Estilos do botão */
+.red-button {
+    background-color: var(--orange-red);
+    border-radius: 50%;
+    width: var(--width-button);
+    height: var(--height-button);
+    border: none;
+    box-shadow: 1px 4px 2px #a01000;
+    position: relative;
+    left: var(--left-button);
+    top: var(--top-button);
+    transition: transform 0.1s, background-color 0.3s; 
+    color: white;
+}
+
+.red-button:hover {
+    transform: scale(1.05); 
+}
+
+.red-button:active {
+    transform: translateY(1px);
+}
+
+.titulo {
+    font-size: var(--font-size-titulo);
+    margin-bottom: 40px;
+    font-weight: 100;
+}
+
+.corpo {
+    font-size: var(--font-size-corpo);
+    font-weight: 50;
+}
+
+.corpo_seg {
+    font-size: var(--font-size-corpo-dois);
+    font-weight: 50;
+    color: #333;
+    text-align: center;
+
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: var(--orange-gray-dark);
+    color: white;
+}
+
+/* Rastro de cor ao passar o mouse */
+body:hover {
+    background-color: rgba(242, 42, 19, 0.1); /* Muda a cor de fundo ao passar o mouse */
 }

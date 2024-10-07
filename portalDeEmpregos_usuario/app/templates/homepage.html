@@ -1,37 +1,105 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portal de vagas</title>
-    <link rel="stylesheet" href="{{ url_for( 'static', filename='css/homepage.css' ) }}">
+    <title>Portal de Vagas</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/homepage.css') }}">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: auto; /* Permitir rolagem */
+            background-color: #f5f5f5;
+            position: relative;
+        }
 
+        .rastro {
+            position: fixed; /* Altera para fixed para cobrir toda a tela */
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(242, 42, 19, 0.7), rgba(242, 42, 19, 0) 70%);
+            box-shadow: 0 0 30px rgba(242, 42, 19, 0.7), 0 0 50px rgba(242, 42, 19, 0.5);
+            pointer-events: none; /* Para que não interfira na interação com o mouse */
+            transition: width 0.3s ease, height 0.3s ease, opacity 0.5s ease;
+            width: 100px; /* Tamanho inicial maior */
+            height: 100px; /* Tamanho inicial maior */
+            opacity: 0; /* Inicialmente invisível */
+        }
+    </style>
 </head>
 <body>
     <header>
         <div class="logo">
-            <p class="portal_de">Portal de</p><p class="vagas"> vagas</p>
+            <p class="portal_de">Portal de</p><p class="vagas"> Vagas</p>
         </div>
         <nav>
             <ul>
-                <li><a href="login">Log in</a></li>
-                <li><a href="sigin">Sig in</a></li>
+                <li><a href="login">Login</a></li>
+                <li><a href="signup">Cadastrar-se</a></li>
                 <li><a href="contatos">Contatos</a></li>
-                <li><a href="equipe_desenvolvimento">Sobre a gente</a></li>
+                <li><a href="equipe_desenvolvimento">Sobre nós</a></li>
             </ul>
         </nav>
-
     </header>
     <main>
         <div class="apresentacao_um">
             <div class="texto">
                 <h1 class="titulo">Encontre novas oportunidades</h1>
-                <p class="corpo">Você esta um click de se conectar com seu futuro!!!</p>
+                <p class="corpo">Você está a um clique de se conectar com seu futuro! Navegue pelas nossas vagas e encontre aquela que combina com você.</p>
+            </div>
+            <button class="red-button">CLICK</button>
+        </div>
+        <div class="apresentacao_dois">
+            <div class="texto">
+                <h1 class="titulo">Faça parte da nossa comunidade</h1>
+                <p class="corpo">Conheça as pessoas que estão procurando por você e encontre a oportunidade perfeita!</p>
+                <p class="corpo_seg">Nossa comunidade é um espaço vibrante e acolhedor, onde pessoas com interesses diversos se reúnem para compartilhar experiências.</p>
+                <a href="signup" class="botao">Junte-se a nós!</a>
+            </div>
+        </div>
+        <div class="apresentacao_tres">
+            <div class="texto">
+                <h1 class="titulo">Conecte-se com empresas</h1>
+                <p class="corpo">Através de nossa plataforma, você pode se candidatar a vagas em diversas empresas.</p>
+                <p class="corpo_seg">Não perca a chance de se destacar no mercado!</p>
+                <a href="contatos" class="botao">Saiba mais</a>
+            </div>
+        </div>
+        <div class="apresentacao_quatro">
+            <div class="texto">
+                <h1 class="titulo">Suporte contínuo</h1>
+                <p class="corpo">Estamos aqui para apoiar você em sua jornada profissional.</p>
+                <p class="corpo_seg">Nossos especialistas estão disponíveis para orientar você em cada passo do caminho.</p>
+                <a href="contatos" class="botao">Entre em contato</a>
             </div>
         </div>
     </main>
     <footer>
-
+        <p>&copy; 2024 Portal de Vagas. Todos os direitos reservados.</p>
     </footer>
+
+    <script>
+        const rastro = document.createElement('div');
+        rastro.className = 'rastro';
+        document.body.appendChild(rastro);
+
+        document.addEventListener('mousemove', function(e) {
+            const { clientX: x, clientY: y } = e;
+
+            rastro.style.left = `${x - 50}px`; // Centraliza o círculo
+            rastro.style.top = `${y - 50}px`; // Centraliza o círculo
+            rastro.style.opacity = '1'; // Mostra o círculo
+
+            // Reseta o círculo quando o mouse para
+            clearTimeout(rastro.timeoutId);
+            rastro.timeoutId = setTimeout(() => {
+                rastro.style.opacity = '0'; // Faz desaparecer
+            }, 200); // Tempo em milissegundos antes de desaparecer
+        });
+
+        window.addEventListener('mouseout', () => {
+            rastro.style.opacity = '0'; // Esconde o círculo se o mouse sair da tela
+        });
+    </script>
 </body>
 </html>
