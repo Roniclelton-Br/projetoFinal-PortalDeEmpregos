@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="shortcut icon" href="../static/image/display.svg" type="image/svg">
+
+
+    <link rel="stylesheet" href="../static/css/login_user.css">
+    <title>Gerenciamento de Empregos - Login</title>
+</head>
+<body>
+    <main class="login section" id="login">
+        <div class="conteudo-login container">
+            <h2>Gerenciamento de Empregos</h2>
+            <span>Login</span>
+    
+            <form method="post" id="loginForm">
+                <div class="form-usuario">
+                    <label for="username">Usuário:</label>
+                    <input type="text" id="username" name="username" placeholder="Nome de Usuário" required>
+                </div>
+                <div class="form-senha">
+                    <label for="password">Senha:</label>
+                    <input type="password" id="password" name="password" placeholder="Senha" required>
+                </div>
+                <div class="form-form">
+                    <label for="form-usuario"></label>
+                    <select class="form-form">
+                        <option  value="" class="padrão" disabled selected> Acessar como? </option>
+
+                        <option value="Candidato"> Candidato </option>
+                        <option  value="Empresa"> Empresa </option>   
+
+                    </select>
+                </div>
+                <div class="form-mensagem">
+                    <button type="submit">Entrar</button>
+                    <p class="error-mensagem"> {{ texto }} </p>
+                    <p>Não tem um cadastro! <a href="signup">Faça seu cadastro aqui</a></p>
+                </div>
+            </form>
+        </div>
+    </main>
+</body>
+</html>
