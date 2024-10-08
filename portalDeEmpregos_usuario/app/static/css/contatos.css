@@ -1,0 +1,77 @@
+:root {
+    --gray-color: #35424A;
+    --orange-color: #E8491D;
+    --back-color: #F4F4F4;
+    --white-color: #ffffff;
+    --black-color: #000000;
+    --red-color: #ff0000;
+    --orange-red: #f22a13;
+}
+:root {
+    --gray-color: #35424A;
+    --orange-color: #E8491D;
+    --back-color: #F4F4F4;
+    --white-color: #ffffff;
+    --black-color: #000000;
+    --red-color: #ff0000;
+    --orange-red: #f22a13;
+}
+
+body {
+    background: linear-gradient(125deg, rgb(116, 32, 32) 0%, #3f1d1d 10%, black 40%, var(--orange-red) 100%);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: white;
+}
+
+.contatos {
+    padding: 20px;
+}
+
+.aviso-card {
+    background-color: rgba(63, 63, 63, 0.226);
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    margin-bottom: 20px;
+    color: white;
+    box-shadow: 0 4px 10px rgba(63, 63, 63, 0.226);;
+}
+
+.contato-container {
+    display: flex;
+    justify-content: space-around; /* Espaçamento entre os cartões */
+    flex-wrap: wrap; /* Para responsividade */
+}
+
+.contato-item {
+    background-color: rgba(63, 63, 63, 0.226); /* Cinza transparente */
+    border-radius: 8px;
+    padding: 20px;
+    margin: 10px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Sombra para efeito de elevação */
+    flex: 1; /* Para permitir que os cartões ocupem espaço igual */
+    min-width: 250px; /* Largura mínima para os cartões */
+}
+
+.contact-link {
+    font-size: 1.6rem; /* Aumenta o tamanho da fonte dos links */
+    color: white; /* Cor do texto */
+    text-decoration: none; /* Remove o sublinhado */
+    font-weight: 600; /* Aumenta o peso da fonte */
+    transition: color 0.3s, transform 0.3s; /* Transição suave para a cor e transformação */
+    padding: 5px; /* Adiciona um pouco de espaço em torno do link */
+    border-radius: 4px; /* Adiciona bordas arredondadas */
+}
+
+.contact-link:hover {
+    color: var(--orange-color); /* Cor ao passar o mouse */
+    transform: scale(1.05); /* Efeito de aumento ao passar o mouse */
+}
+
+.icon {
+    vertical-align: middle; /* Para centralizar o ícone com o texto */
+    margin-right: 8px; /* Espaço entre ícone e texto */
+    color: white;
+    filter: brightness(0) invert(1); /* Faz o ícone branco */
+}
