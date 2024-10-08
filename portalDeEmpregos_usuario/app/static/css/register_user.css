@@ -15,39 +15,49 @@
     --red-color: #ff0000;
     --orange-red: #f22a13;
 }
-a{
+
+a {
     color: var(--red-color);
 }
+
 html {
     font-size: 62.5%;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background: linear-gradient(125deg, rgb(116, 32, 32) 0%, #3f1d1d 10%, black 40%, var(--orange-red) 100%);
-    max-width: 100dvw;
-    height: 100dvh;
     display: flex;
     align-items: center;
     justify-content: center;
+
+}
+
+body {
+    min-width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .conteudo-login {
     width: 400px;
-    height: 500px;
+    height: auto; /* Ajustado para auto */
     border: 1px solid var(--gray-color);
     border-radius: 5px;
     padding: 20px;
     background-color: var(--back-color);
-    box-shadow: 3px 3px 20px #E8491D, -3px -3px 20px #E8491D;
+    box-shadow: 3px 3px 20px rgba(232, 73, 29, 0.5), -3px -3px 20px rgba(232, 73, 29, 0.5);
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
     margin: 5%;
 }
-.padrão{
-    color:gray;
+
+.padrão {
+    color: gray;
 }
+
 .conteudo-login h2 {
-    margin-top: -50px;
+    margin: 0;
     margin-bottom: 10px;
     padding: 10px;
     font-size: 2.5rem;
@@ -64,31 +74,43 @@ html {
 
 .conteudo-login form {
     padding: 10px;
-    height: 200px;
+    width: 100%; /* Ajustado para responsividade */
 }
 
-.conteudo-login form .form-usuario,
+.conteudo-login form .form-group,
+.conteudo-login form .form-name,
+.conteudo-login form .data_nascimento,
+.conteudo-login form .form-cpf,
+.conteudo-login form .form-email,
 .conteudo-login form .form-senha {
     padding: 10px 0;
     display: flex;
-    align-items: center;
+    flex-direction: column; /* Alterado para coluna para melhor alinhamento */
 }
 
-.conteudo-login form .form-usuario label,
-.conteudo-login form .form-senha label {
-    font-size: 2rem;
+.conteudo-login form label {
+    font-size: 1.8rem;
     font-weight: bold;
-    width: 40%;
     color: var(--gray-color);
+    margin-bottom: 5px;
 }
 
-.conteudo-login form .form-usuario input,
-.conteudo-login form .form-senha input {
+.conteudo-login form input,
+.conteudo-login form select {
     width: 100%;
-    font-size: 2.2rem;
+    font-size: 2rem; /* Tamanho do texto dos inputs */
     outline: none;
-    padding: 5px 10px;
+    padding: 10px; /* Aumentado para maior conforto ao digitar */
     color: var(--gray-color);
+    border: 1px solid var(--gray-color);
+    border-radius: 4px;
+    margin-bottom: 15px; /* Espaçamento entre os campos */
+}
+
+.conteudo-login form input:focus,
+.conteudo-login form select:focus {
+    border-color: var(--orange-color);
+    box-shadow: 0 0 5px var(--orange-color);
 }
 
 .conteudo-login .form-mensagem {
@@ -104,15 +126,41 @@ html {
     border: 1px solid var(--gray-color);
     border-radius: 5px;
     font-size: 2rem;
-    padding: 5px 10px;
-    text-align: center;
-    margin: auto;
+    padding: 10px 20px; /* Ajustado para melhor área de clique */
+    color: white; /* Para garantir visibilidade */
     cursor: pointer;
+    transition: background-color 0.3s; /* Efeito ao passar o mouse */
+}
+
+.conteudo-login .form-mensagem button:hover {
+    background-color: darken(var(--orange-color), 10%); /* Efeito de escurecimento */
+}
+
+.submit{
+    justify-content: center;
+    align-items: center;
+    display: flex;
 }
 
 .conteudo-login .form-mensagem p {
     font-size: 1.2rem;
     text-align: center;
+}
+.btn-primary {
+    background-color: var(--orange-color);
+    border: 1px solid var(--gray-color);
+    border-radius: 5px;
+    font-size: 2rem;
+    padding: 5px 10px;
+    text-align: center;
+    margin: auto;
+    cursor: pointer;
+    color: white; /* Adicionado para garantir que o texto fique visível */
+    transition: background-color 0.3s; /* Efeito de transição */
+}
+
+.btn-primary:hover {
+    background-color: darken(var(--orange-color), 10%); /* Efeito ao passar o mouse */
 }
 
 .hide {
@@ -122,21 +170,22 @@ html {
 .show {
     display: block; /* Exibe o elemento */
 }
-.form-form{
+
+.form-form {
     min-width: 25vw;
     height: 6vh;
 }
-select{
+
+select {
     text-align: center;
 }
+
 .conteudo-login .form-mensagem .error-mensagem {
     color: var(--red-color);
 }
+
 @media screen and (max-width: 600px) {
-    .form-form{
-        min-width: 90vw;
-    }
-    .conteudo-login{
-        width: 375px;
+    .conteudo-login {
+        width: 90%; /* Ajustado para responsividade em telas menores */
     }
 }

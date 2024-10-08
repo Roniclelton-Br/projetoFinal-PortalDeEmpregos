@@ -3,11 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <link rel="shortcut icon" href="../static/image/display.svg" type="image/svg">
-
-
-    <link rel="stylesheet" href="../static/css/login_user.css">
+    <link rel="stylesheet" href="../static/css/register_user.css">
     <title>Gerenciamento de Empregos - Login</title>
 </head>
 <body>
@@ -15,9 +12,44 @@
         <div class="conteudo-login container">
             <h2>Gerenciamento de Empregos</h2>
             <span>Registro</span>
-    
             <form method="post" id="loginForm">
+                <div class="form-group">
+                    <label for="tipo">Acessar como?</label>
+                    <select class="tipo">
+                        <option value="Candidato">Candidato</option>
+                        <option value="Empresa">Empresa</option>
+                    </select>
+                </div>
 
+                <div class="form-name">
+                    <label for="name">Nome:</label>
+                    <input type="text" placeholder="Digite seu nome e sobrenome." required>
+                </div>
+                <div class="data_nascimento">
+                    <label for="data_nascimento">Data de Nascimento:</label>
+                    <input type="date" required>
+                </div>
+                <div class="form-cpf">
+                    <label for="cpf">CPF:</label>
+                    <input type="text" placeholder="000.000.000-00" required>
+                </div>
+                <div class="form-email">
+                    <label for="email">E-mail:</label>
+                    <input type="email" placeholder="exemplo@exemplo.com" required>
+                    <br>
+                    <label for="Confirmar_email">Confirmar E-mail:</label>
+                    <input type="email" placeholder="Digite seu email novamente" required>
+                </div>
+                <div class="form-senha">
+                    <label for="senha">Senha:</label>
+                    <input type="password" placeholder="Digite sua senha" required>
+                    <br>
+                    <label for="Confirmar_senha">Confirmar Senha:</label>
+                    <input type="password" placeholder="Digite sua senha novamente" required>
+                </div>
+                <div class="submit">
+                    <button type="submit" class="btn btn-primary">Cadastrar</button>
+                </div>
             </form>
         </div>
     </main>
