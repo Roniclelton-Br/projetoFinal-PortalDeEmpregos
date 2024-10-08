@@ -75,3 +75,8 @@ body {
     color: white;
     filter: brightness(0) invert(1); /* Faz o ícone branco */
 }
+@media screen and (max-width: 600px) {
+    .contact-link {
+        font-size: 1rem; /* Ajusta o tamanho da fonte dos links */
+    }
+}
