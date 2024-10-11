@@ -27,7 +27,6 @@ html {
     display: flex;
     align-items: center;
     justify-content: center;
-
 }
 
 body {
@@ -89,9 +88,7 @@ body {
 }
 
 .conteudo-login form label {
-    font-size: 1.8rem;
     font-weight: bold;
-    color: var(--gray-color);
     margin-bottom: 5px;
 }
 
@@ -136,7 +133,7 @@ body {
     background-color: darken(var(--orange-color), 10%); /* Efeito de escurecimento */
 }
 
-.submit{
+.submit {
     justify-content: center;
     align-items: center;
     display: flex;
@@ -146,6 +143,7 @@ body {
     font-size: 1.2rem;
     text-align: center;
 }
+
 .btn-primary {
     background-color: var(--orange-color);
     border: 1px solid var(--gray-color);
@@ -182,6 +180,13 @@ select {
 
 .conteudo-login .form-mensagem .error-mensagem {
     color: var(--red-color);
+}
+
+.conteudo-login form .erro {
+    color: var(--red-color);
+    margin-top: 10px;
+    font-size: 1.4rem;
+    font-weight: bold; /* Se desejar que fique em negrito */
 }
 
 @media screen and (max-width: 600px) {

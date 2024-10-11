@@ -15,38 +15,45 @@
             <form method="post" id="loginForm">
                 <div class="form-group">
                     <label for="tipo">Acessar como?</label>
-                    <select class="tipo">
+                    <select class="tipo" name="type">
                         <option value="Candidato">Candidato</option>
                         <option value="Empresa">Empresa</option>
                     </select>
                 </div>
 
                 <div class="form-name">
-                    <label for="name">Nome:</label>
-                    <input type="text" placeholder="Digite seu nome e sobrenome." required>
+                    <label for="name" >Nome:</label>
+                    <input type="text" placeholder="Digite seu nome e sobrenome." name="nome" required>
+                </div>
+                <div class="form-name">
+                    <label for="username" >Nome de usuario:</label>
+                    <input type="text" placeholder="Digite seu nome de usario." name="username" required>
                 </div>
                 <div class="data_nascimento">
-                    <label for="data_nascimento">Data de Nascimento:</label>
-                    <input type="date" required>
+                    <label for="data_nascimento" >Data de Nascimento:</label>
+                    <input type="date" name="data_nascimento" required>
                 </div>
                 <div class="form-cpf">
-                    <label for="cpf">CPF:</label>
-                    <input type="text" placeholder="000.000.000-00" required>
+                    <label for="cpf" >CPF:</label>
+                    <input type="text" placeholder="000.000.000-00" name="cpf" required>
                 </div>
                 <div class="form-email">
                     <label for="email">E-mail:</label>
-                    <input type="email" placeholder="exemplo@exemplo.com" required>
+                    <input type="email" placeholder="exemplo@exemplo.com" name="email" required>
                     <br>
                     <label for="Confirmar_email">Confirmar E-mail:</label>
-                    <input type="email" placeholder="Digite seu email novamente" required>
+                    <input type="email" placeholder="Digite seu email novamente" name="confirma_email" required>
                 </div>
                 <div class="form-senha">
                     <label for="senha">Senha:</label>
-                    <input type="password" placeholder="Digite sua senha" required>
+                    <input type="password" placeholder="Digite sua senha" name="senha" required>
+
                     <br>
                     <label for="Confirmar_senha">Confirmar Senha:</label>
-                    <input type="password" placeholder="Digite sua senha novamente" required>
+                    <input type="password" placeholder="Digite sua senha novamente" name="confirma_senha" required>
                 </div>
+                <label class="erro">{{ erro_mensage }}</label>
+
                 <div class="submit">
                     <button type="submit" class="btn btn-primary">Cadastrar</button>
                 </div>
