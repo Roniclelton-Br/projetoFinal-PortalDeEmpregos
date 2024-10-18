@@ -1,0 +1,15 @@
+body {
+    display: flex;
+    min-height: 100vh; /* Full height of the viewport */
+    min-width: 100vw;
+}
+
+aside {
+    background-color: aquamarine;
+    min-width: 20%; /* Example width for the sidebar */
+    min-height: 100%;
+}
+
+main {
+    flex: 1; /* Takes the remaining space */
+}
