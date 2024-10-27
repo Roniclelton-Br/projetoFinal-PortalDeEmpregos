@@ -58,11 +58,11 @@
                 </div>
             </div>
         </section>
-
         <section class="vagas section" id="cadastrarVaga">
             <div class="conteudo-vagas container">
                 <div class="cadastrar-vagas">
                     <h1>Adicionar Vaga</h1>
+                    <!-- Formulário para adicionar vaga -->
                     <form method="POST" action="{{ url_for('add_vaga') }}">
                         <p>
                             <label for="id_empresa">ID da Empresa:</label><br>
@@ -87,6 +87,7 @@
                 </div>
             </div>
         </section>
+        
 
         <section class="vagas section" id="EditarVaga">
             <div class="conteudo-vagas container">
@@ -136,6 +137,10 @@
                         <p>
                             <label for="descricao_empresa">Descrição:</label><br>
                             <input type="text" id="descricao_empresa" name="descricao_empresa">
+                        </p>
+                        <p>
+                            <label for="status_empresa">Descrição:</label><br>
+                            <input type="text" id="status_empresa" name="status_empresa">
                         </p>
                         <p>
                             <button type="submit" class="btn-adicionar">Adicionar</button>
@@ -194,6 +199,10 @@
                         <p>
                             <label for="email_candidato">E-mail:</label><br>
                             <input type="email" id="email_candidato" name="email_candidato" value="SEM E-MAIL">
+                        </p>
+                        <p>
+                            <label for="status_candidato">E-mail:</label><br>
+                            <input type="text" id="status_candidato" name="status_candidato">
                         </p>
                         <p>
                             <button class="btn-adicionar" type="submit">Adicionar</button>
