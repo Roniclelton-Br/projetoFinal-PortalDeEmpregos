@@ -13,3 +13,7 @@ aside {
 main {
     flex: 1; /* Takes the remaining space */
 }
+.perfil-label {
+    font-size: 1.1rem;
+    color: rgb(59, 58, 58);
+}

@@ -14,6 +14,12 @@ def main_pg( id_user = int):
     data = user.get_id()
     print(data)
 
+    if data[1]['account_type'] == 'candidato':
+        code = f''
+        return render_template("main.html", name = data[0]['nome'], code = code)
+
+        
+
     return render_template("main.html", name = data[0]['nome'])
 
 class ID():
