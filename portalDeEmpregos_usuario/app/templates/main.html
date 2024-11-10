@@ -11,10 +11,10 @@
 </head>
 <body>
     <aside>
-        <div class="perfil-label"><label>{{ name | safe }}</label></div>
+        <div class="perfil-label"><label class="welcome">Bem-vindo</label><br><label>{{ name | safe }}</label></div>
     </aside>
     <main>
-        <div>{{ code | safe }}</div>
+        {{ code | safe }}
     </main>
 </body>
 </html>

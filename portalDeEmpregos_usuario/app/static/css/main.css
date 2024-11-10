@@ -2,18 +2,36 @@ body {
     display: flex;
     min-height: 100vh; /* Full height of the viewport */
     min-width: 100vw;
+    margin: 0px;
+    padding: 0px;
 }
 
 aside {
-    background-color: aquamarine;
-    min-width: 20%; /* Example width for the sidebar */
+    background: linear-gradient(180deg, white 0%, rgb(211, 255, 237) 25%, rgb(141, 246, 255) 90%);
+    min-width: 25%; /* Example width for the sidebar */
     min-height: 100%;
 }
 
 main {
     flex: 1; /* Takes the remaining space */
+    justify-content: center;  /* Alinha horizontalmente */
+    align-items: center;
+    display: flex; 
 }
 .perfil-label {
     font-size: 1.1rem;
-    color: rgb(59, 58, 58);
+    font-weight: bold;
+    background-clip: NONE;
+    background: linear-gradient(180deg, white 1%, rgb(158, 242, 247) 1%, rgb(51, 51, 51) 100%); /* Gradiente de branco, azul e cinza */
+    -webkit-background-clip: text; /* Aplica o gradiente somente ao texto */
+    color: transparent; /* Torna a cor do texto transparente para ver o gradiente */
+    margin: 20%;
+    margin-top: 20%;
+    text-align: center;
+}
+.welcome{
+    font-size: 0.65rem;
+}
+.erro-data{
+    color: gray;
 }
