@@ -13,7 +13,7 @@ def main_pg( name = str):
     user = ID(name)
     data = user.get_id()
     #print(data)
-    code = None
+    code = user.search_bd()
 
     if data[1]['account_type'] == 'candidato':
         if code is None:
@@ -41,7 +41,14 @@ class ID():
         return [{'nome': 'Ricardo'}, {'account_type': 'candidato'}, {'ID': '0'}]
     
     def search_bd(self):
-        pass
+        code = """
+<div class="container-card"
+    <div class="card-vaga">
+
+    </div>
+</div>
+"""
+        return code
 
     def edit_bd(self):
         pass
